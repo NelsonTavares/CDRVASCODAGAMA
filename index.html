@@ -167,17 +167,16 @@ nav a.active::after{
 
 .hero::after{
   content:"";
-
   position:absolute;
-
   inset:0;
+  background:transparent;
+  pointer-events:none;
+}
 
-  background:
-    radial-gradient(
-      circle at center,
-      transparent 20%,
-      rgba(0,0,0,.38) 85%
-    );
+ background:
+  url("fundohome.png")
+  center center / cover
+  no-repeat;
 
   pointer-events:none;
 }
