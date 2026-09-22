@@ -140,7 +140,6 @@ nav a.active::after{
 ========================= */
 
 .hero{
-
   min-height:560px;
 
   position:relative;
@@ -154,16 +153,12 @@ nav a.active::after{
   text-align:center;
 
   background:
-    linear-gradient(
-      rgba(0,0,0,.35),
-      rgba(0,0,0,.58)
-    ),
     url("fundohome.png")
     center center / cover
     no-repeat;
 }
 
-/* subtle dark overlay */
+/* overlay */
 
 .hero::after{
   content:"";
@@ -173,16 +168,7 @@ nav a.active::after{
   pointer-events:none;
 }
 
- background:
-  url("fundohome.png")
-  center center / cover
-  no-repeat;
-
-  pointer-events:none;
-}
-
 .hero-content{
-
   position:relative;
 
   z-index:3;
@@ -194,7 +180,6 @@ nav a.active::after{
 }
 
 .hero-kicker{
-
   font-size:14px;
 
   letter-spacing:6px;
@@ -205,7 +190,6 @@ nav a.active::after{
 }
 
 .hero h1{
-
   font-size:
     clamp(44px,7vw,92px);
 
@@ -219,7 +203,6 @@ nav a.active::after{
 }
 
 .hero-location{
-
   margin-top:20px;
 
   font-size:18px;
@@ -230,7 +213,6 @@ nav a.active::after{
 }
 
 .red-line{
-
   width:150px;
 
   height:4px;
@@ -245,7 +227,6 @@ nav a.active::after{
 }
 
 .hero-slogan{
-
   font-size:15px;
 
   letter-spacing:5px;
@@ -258,7 +239,6 @@ nav a.active::after{
 ========================= */
 
 .matches{
-
   max-width:1200px;
 
   margin:-55px auto 0;
@@ -277,7 +257,6 @@ nav a.active::after{
 }
 
 .match-card{
-
   background:
     linear-gradient(
       145deg,
@@ -298,7 +277,6 @@ nav a.active::after{
 }
 
 .match-title{
-
   color:#ccc;
 
   font-size:13px;
@@ -309,7 +287,6 @@ nav a.active::after{
 }
 
 .match-content{
-
   display:flex;
 
   align-items:center;
@@ -320,14 +297,12 @@ nav a.active::after{
 }
 
 .team{
-
   font-weight:bold;
 
   font-size:14px;
 }
 
 .score{
-
   font-size:38px;
 
   font-weight:900;
@@ -336,7 +311,6 @@ nav a.active::after{
 }
 
 .match-date{
-
   margin-top:16px;
 
   color:#999;
@@ -349,14 +323,12 @@ nav a.active::after{
 ========================= */
 
 .quote{
-
   text-align:center;
 
   padding:85px 20px 60px;
 }
 
 .quote p{
-
   font-size:30px;
 
   font-style:italic;
@@ -368,7 +340,6 @@ nav a.active::after{
 }
 
 .quote span{
-
   display:block;
 
   width:70px;
@@ -388,7 +359,6 @@ nav a.active::after{
 ========================= */
 
 .features{
-
   max-width:1400px;
 
   margin:auto;
@@ -404,7 +374,6 @@ nav a.active::after{
 }
 
 .feature{
-
   min-height:210px;
 
   border:1px solid #333;
@@ -432,7 +401,6 @@ nav a.active::after{
 }
 
 .feature::before{
-
   content:"";
 
   position:absolute;
@@ -460,7 +428,6 @@ nav a.active::after{
 }
 
 .feature:hover{
-
   transform:
     translateY(-6px);
 
@@ -472,7 +439,6 @@ nav a.active::after{
 }
 
 .feature h2{
-
   position:relative;
 
   z-index:2;
@@ -483,7 +449,6 @@ nav a.active::after{
 }
 
 .feature p{
-
   position:relative;
 
   z-index:2;
@@ -502,7 +467,6 @@ nav a.active::after{
 ========================= */
 
 footer{
-
   border-top:1px solid #292929;
 
   padding:35px 6%;
@@ -521,7 +485,6 @@ footer{
 }
 
 footer strong{
-
   color:#fff;
 }
 
@@ -532,7 +495,6 @@ footer strong{
 @media(max-width:900px){
 
   header{
-
     height:auto;
 
     padding:18px;
@@ -543,46 +505,38 @@ footer strong{
   }
 
   .brand{
-
     min-width:0;
   }
 
   nav{
-
     flex-wrap:wrap;
 
     gap:18px;
   }
 
   nav a{
-
     padding:5px;
   }
 
   nav a.active::after{
-
     bottom:-5px;
   }
 
   .hero{
-
     min-height:500px;
   }
 
   .hero h1{
-
     font-size:48px;
   }
 
   .matches{
-
     grid-template-columns:1fr;
 
     margin-top:-30px;
   }
 
   .features{
-
     grid-template-columns:
       1fr 1fr;
   }
@@ -592,72 +546,60 @@ footer strong{
 @media(max-width:550px){
 
   .brand-text strong{
-
     font-size:18px;
   }
 
   .brand-text span{
-
     font-size:7px;
 
     letter-spacing:2px;
   }
 
   .hero{
-
     min-height:480px;
   }
 
   .hero h1{
-
     font-size:38px;
 
     letter-spacing:2px;
   }
 
   .hero-kicker{
-
     font-size:10px;
 
     letter-spacing:3px;
   }
 
   .hero-location{
-
     font-size:12px;
 
     letter-spacing:4px;
   }
 
   .hero-slogan{
-
     font-size:10px;
 
     letter-spacing:3px;
   }
 
   .matches{
-
     padding:0 12px;
   }
 
   .match-content{
-
     gap:12px;
   }
 
   .team{
-
     font-size:11px;
   }
 
   .score{
-
     font-size:30px;
   }
 
   .features{
-
     grid-template-columns:1fr;
 
     padding:
@@ -665,12 +607,10 @@ footer strong{
   }
 
   .quote p{
-
     font-size:23px;
   }
 
   footer{
-
     flex-direction:column;
 
     gap:15px;
@@ -685,24 +625,17 @@ footer strong{
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <header>
 
   <a href="#" class="brand">
 
-    <img
-      src="cdrvg.png"
-      alt="CDR Vasco da Gama"
-    >
+    <img src="cdrvg.png" alt="CDR Vasco da Gama">
 
     <div class="brand-text">
 
-      <strong>
-        CDR VASCO DA GAMA
-      </strong>
+      <strong>CDR VASCO DA GAMA</strong>
 
       <span>
         CLUBE DESPORTIVO E RECREATIVO
@@ -714,40 +647,22 @@ footer strong{
 
   <nav>
 
-    <a
-      href="#"
-      class="active"
-    >
-      HOME
-    </a>
+    <a href="#" class="active">HOME</a>
 
-    <a href="#">
-      HISTÓRIA
-    </a>
+    <a href="#">HISTÓRIA</a>
 
-    <a href="#">
-      LOJA
-    </a>
+    <a href="#">LOJA</a>
 
-    <a href="#">
-      CALENDÁRIO
-    </a>
+    <a href="#">CALENDÁRIO</a>
 
-    <a href="#">
-      SÓCIOS
-    </a>
+    <a href="#">SÓCIOS</a>
 
   </nav>
 
 </header>
 
 
-<!-- =========================
-     HOME
-========================= -->
-
 <main>
-
 
   <!-- HERO -->
 
@@ -781,7 +696,6 @@ footer strong{
   <!-- JOGOS -->
 
   <section class="matches">
-
 
     <div class="match-card">
 
@@ -840,7 +754,6 @@ footer strong{
 
     </div>
 
-
   </section>
 
 
@@ -861,11 +774,7 @@ footer strong{
 
   <section class="features">
 
-
-    <a
-      href="#"
-      class="feature"
-    >
+    <a href="#" class="feature">
 
       <h2>
         HISTÓRIA
@@ -878,10 +787,7 @@ footer strong{
     </a>
 
 
-    <a
-      href="#"
-      class="feature"
-    >
+    <a href="#" class="feature">
 
       <h2>
         LOJA
@@ -894,10 +800,7 @@ footer strong{
     </a>
 
 
-    <a
-      href="#"
-      class="feature"
-    >
+    <a href="#" class="feature">
 
       <h2>
         SÓCIOS
@@ -910,10 +813,7 @@ footer strong{
     </a>
 
 
-    <a
-      href="#"
-      class="feature"
-    >
+    <a href="#" class="feature">
 
       <h2>
         CALENDÁRIO
@@ -925,15 +825,10 @@ footer strong{
 
     </a>
 
-
   </section>
 
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
@@ -960,7 +855,6 @@ footer strong{
   </div>
 
 </footer>
-
 
 </body>
 </html>
