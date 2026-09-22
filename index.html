@@ -7,10 +7,15 @@
 <title>CDR Vasco da Gama</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -25,84 +30,109 @@ a{
 }
 
 /* =========================
-   CABEÇALHO
+   HEADER
 ========================= */
 
 header{
   height:92px;
   background:#050505;
   border-bottom:1px solid #292929;
+
   display:flex;
   align-items:center;
+
   padding:0 5%;
+
   position:relative;
-  z-index:10;
+  z-index:20;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:15px;
-  min-width:280px;
+
+  min-width:330px;
 }
 
 .brand img{
   width:58px;
   height:58px;
+
   object-fit:contain;
+
   filter:
-    drop-shadow(0 0 8px rgba(255,0,0,.5))
-    drop-shadow(0 0 18px rgba(255,0,0,.2));
+    drop-shadow(0 0 8px rgba(255,0,0,.6))
+    drop-shadow(0 0 20px rgba(255,0,0,.25));
 }
 
 .brand-text strong{
   display:block;
+
   font-size:22px;
   letter-spacing:2px;
 }
 
 .brand-text span{
-  font-size:10px;
+  display:block;
+
+  margin-top:4px;
+
+  font-size:9px;
   letter-spacing:4px;
-  color:#aaa;
+
+  color:#999;
 }
 
 /* =========================
-   MENU
+   NAV
 ========================= */
 
 nav{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:32px;
   flex:1;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  gap:34px;
 }
 
 nav a{
+  position:relative;
+
+  padding:35px 0;
+
   font-size:13px;
   font-weight:bold;
+
   letter-spacing:1px;
-  padding:35px 0;
-  position:relative;
+
+  transition:.25s;
 }
 
 nav a:hover{
-  color:#ff2020;
+  color:#ff1515;
 }
 
 nav a.active{
-  color:#ff2020;
+  color:#ff1515;
 }
 
 nav a.active::after{
   content:"";
+
   position:absolute;
+
   left:0;
   right:0;
   bottom:20px;
+
   height:3px;
+
   background:#ff1515;
+
+  box-shadow:0 0 10px rgba(255,0,0,.6);
 }
 
 /* =========================
@@ -110,204 +140,361 @@ nav a.active::after{
 ========================= */
 
 .hero{
-  min-height:520px;
+
+  min-height:560px;
+
   position:relative;
+
   overflow:hidden;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   text-align:center;
+
   background:
-    radial-gradient(circle at center,rgba(180,0,0,.35),transparent 45%),
-    linear-gradient(135deg,#111,#030303 55%,#180000);
+    linear-gradient(
+      rgba(0,0,0,.35),
+      rgba(0,0,0,.58)
+    ),
+    url("fundohome.png")
+    center center / cover
+    no-repeat;
 }
 
-.hero::before{
+/* subtle dark overlay */
+
+.hero::after{
   content:"";
+
   position:absolute;
-  width:650px;
-  height:650px;
-  background-image:url("cdrvg.png");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:contain;
-  opacity:.18;
-filter:
-  drop-shadow(0 0 8px rgba(255,0,0,.8))
-  drop-shadow(0 0 30px rgba(255,0,0,.45))
-  drop-shadow(0 0 60px rgba(255,0,0,.2));
+
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 20%,
+      rgba(0,0,0,.38) 85%
+    );
+
+  pointer-events:none;
 }
 
 .hero-content{
+
   position:relative;
-  z-index:2;
+
+  z-index:3;
+
+  padding:40px 20px;
+
+  text-shadow:
+    0 4px 25px rgba(0,0,0,.95);
 }
 
 .hero-kicker{
-  color:#ddd;
+
   font-size:14px;
+
   letter-spacing:6px;
+
+  color:#eee;
+
   margin-bottom:18px;
 }
 
 .hero h1{
-  font-size:clamp(45px,7vw,92px);
-  letter-spacing:5px;
+
+  font-size:
+    clamp(44px,7vw,92px);
+
   font-weight:900;
-  text-shadow:0 4px 25px #000;
+
+  letter-spacing:5px;
+
+  line-height:1;
+
+  color:#fff;
 }
 
 .hero-location{
-  margin-top:15px;
+
+  margin-top:20px;
+
   font-size:18px;
+
   letter-spacing:7px;
-  color:#ddd;
+
+  color:#eee;
 }
 
 .red-line{
+
   width:150px;
+
   height:4px;
+
   background:#ed1111;
+
   margin:28px auto;
-  box-shadow:0 0 15px rgba(255,0,0,.6);
+
+  box-shadow:
+    0 0 10px rgba(255,0,0,.8),
+    0 0 25px rgba(255,0,0,.35);
 }
 
 .hero-slogan{
+
   font-size:15px;
+
   letter-spacing:5px;
-  color:#bbb;
+
+  color:#ddd;
 }
 
 /* =========================
-   RESULTADOS
+   MATCHES
 ========================= */
 
 .matches{
+
   max-width:1200px;
+
   margin:-55px auto 0;
+
   position:relative;
+
   z-index:5;
+
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:20px;
+
   padding:0 20px;
 }
 
 .match-card{
-  background:rgba(8,8,8,.96);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,15,15,.98),
+      rgba(3,3,3,.98)
+    );
+
   border:1px solid #444;
+
   border-left:4px solid #e60000;
-  padding:25px;
+
+  padding:27px;
+
   text-align:center;
-  box-shadow:0 15px 40px rgba(0,0,0,.6);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.7);
 }
 
 .match-title{
+
   color:#ccc;
+
   font-size:13px;
+
   letter-spacing:2px;
-  margin-bottom:20px;
+
+  margin-bottom:22px;
 }
 
 .match-content{
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
-  gap:25px;
+
+  gap:28px;
 }
 
 .team{
+
   font-weight:bold;
+
   font-size:14px;
 }
 
 .score{
+
   font-size:38px;
+
   font-weight:900;
+
   color:#fff;
 }
 
 .match-date{
-  margin-top:15px;
+
+  margin-top:16px;
+
   color:#999;
+
   font-size:12px;
 }
 
 /* =========================
-   FRASE
+   QUOTE
 ========================= */
 
 .quote{
+
   text-align:center;
-  padding:80px 20px 55px;
+
+  padding:85px 20px 60px;
 }
 
 .quote p{
+
   font-size:30px;
+
   font-style:italic;
+
   color:#ddd;
+
+  text-shadow:
+    0 3px 15px #000;
 }
 
 .quote span{
+
   display:block;
+
   width:70px;
+
   height:3px;
+
   background:#e00000;
+
   margin:20px auto 0;
+
+  box-shadow:
+    0 0 12px rgba(255,0,0,.5);
 }
 
 /* =========================
-   CARTÕES
+   FEATURES
 ========================= */
 
 .features{
+
   max-width:1400px;
+
   margin:auto;
-  padding:0 25px 70px;
+
+  padding:0 25px 80px;
+
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:18px;
 }
 
 .feature{
-  min-height:190px;
+
+  min-height:210px;
+
   border:1px solid #333;
+
   background:
-    linear-gradient(145deg,#171717,#080808);
+    linear-gradient(
+      145deg,
+      #171717,
+      #070707
+    );
+
   padding:28px;
+
   display:flex;
+
   flex-direction:column;
+
   justify-content:flex-end;
+
   position:relative;
+
   overflow:hidden;
+
   transition:.3s;
 }
 
 .feature::before{
+
   content:"";
+
   position:absolute;
-  width:130px;
-  height:130px;
-  background:url("cdrvg.png") center/contain no-repeat;
-  opacity:.08;
-  right:-25px;
-  top:-25px;
+
+  width:160px;
+
+  height:160px;
+
+  background:
+    url("cdrvg.png")
+    center / contain
+    no-repeat;
+
+  opacity:.06;
+
+  right:-30px;
+
+  top:-30px;
+
+  filter:
+    drop-shadow(
+      0 0 15px
+      rgba(255,0,0,.8)
+    );
 }
 
 .feature:hover{
-  transform:translateY(-5px);
+
+  transform:
+    translateY(-6px);
+
   border-color:#e00000;
+
+  box-shadow:
+    0 12px 35px
+    rgba(255,0,0,.12);
 }
 
 .feature h2{
+
+  position:relative;
+
+  z-index:2;
+
   font-size:25px;
+
   letter-spacing:2px;
 }
 
 .feature p{
+
+  position:relative;
+
+  z-index:2;
+
   color:#999;
+
   margin-top:8px;
+
   font-size:12px;
+
   letter-spacing:1px;
 }
 
@@ -316,17 +503,26 @@ filter:
 ========================= */
 
 footer{
+
   border-top:1px solid #292929;
+
   padding:35px 6%;
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   color:#888;
+
   font-size:11px;
+
   letter-spacing:2px;
 }
 
 footer strong{
+
   color:#fff;
 }
 
@@ -337,106 +533,224 @@ footer strong{
 @media(max-width:900px){
 
   header{
+
     height:auto;
+
     padding:18px;
+
     flex-direction:column;
+
     gap:15px;
   }
 
   .brand{
+
     min-width:0;
   }
 
   nav{
+
     flex-wrap:wrap;
+
     gap:18px;
   }
 
   nav a{
+
     padding:5px;
   }
 
   nav a.active::after{
+
     bottom:-5px;
   }
 
   .hero{
-    min-height:450px;
+
+    min-height:500px;
   }
 
-  .hero::before{
-    width:430px;
-    height:430px;
+  .hero h1{
+
+    font-size:48px;
   }
 
   .matches{
+
     grid-template-columns:1fr;
+
     margin-top:-30px;
   }
 
   .features{
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+      1fr 1fr;
   }
 
-  footer{
-    flex-direction:column;
-    gap:15px;
-    text-align:center;
-  }
 }
 
 @media(max-width:550px){
 
   .brand-text strong{
+
     font-size:18px;
   }
 
+  .brand-text span{
+
+    font-size:7px;
+
+    letter-spacing:2px;
+  }
+
+  .hero{
+
+    min-height:480px;
+  }
+
   .hero h1{
-    font-size:42px;
+
+    font-size:38px;
+
+    letter-spacing:2px;
+  }
+
+  .hero-kicker{
+
+    font-size:10px;
+
+    letter-spacing:3px;
   }
 
   .hero-location{
-    font-size:13px;
+
+    font-size:12px;
+
+    letter-spacing:4px;
   }
 
   .hero-slogan{
+
+    font-size:10px;
+
+    letter-spacing:3px;
+  }
+
+  .matches{
+
+    padding:0 12px;
+  }
+
+  .match-content{
+
+    gap:12px;
+  }
+
+  .team{
+
     font-size:11px;
   }
 
+  .score{
+
+    font-size:30px;
+  }
+
   .features{
+
     grid-template-columns:1fr;
+
+    padding:
+      0 15px 60px;
   }
 
   .quote p{
+
     font-size:23px;
   }
+
+  footer{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    text-align:center;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
   <a href="#" class="brand">
-    <img src="cdrvg.png" alt="CDR Vasco da Gama">
+
+    <img
+      src="cdrvg.png"
+      alt="CDR Vasco da Gama"
+    >
+
     <div class="brand-text">
-      <strong>CDR VASCO DA GAMA</strong>
-      <span>CLUBE DESPORTIVO E RECREATIVO</span>
+
+      <strong>
+        CDR VASCO DA GAMA
+      </strong>
+
+      <span>
+        CLUBE DESPORTIVO E RECREATIVO
+      </span>
+
     </div>
+
   </a>
 
   <nav>
-    <a href="#" class="active">HOME</a>
-    <a href="#">HISTÓRIA</a>
-    <a href="#">LOJA</a>
-    <a href="#">CALENDÁRIO</a>
-    <a href="#">SÓCIOS</a>
+
+    <a
+      href="#"
+      class="active"
+    >
+      HOME
+    </a>
+
+    <a href="#">
+      HISTÓRIA
+    </a>
+
+    <a href="#">
+      LOJA
+    </a>
+
+    <a href="#">
+      CALENDÁRIO
+    </a>
+
+    <a href="#">
+      SÓCIOS
+    </a>
+
   </nav>
 
 </header>
 
+
+<!-- =========================
+     HOME
+========================= -->
+
 <main>
+
+
+  <!-- HERO -->
 
   <section class="hero">
 
@@ -446,7 +760,9 @@ footer strong{
         CLUBE DESPORTIVO E RECREATIVO
       </div>
 
-      <h1>CDR VASCO DA GAMA</h1>
+      <h1>
+        CDR VASCO DA GAMA
+      </h1>
 
       <div class="hero-location">
         SEIXO DA BEIRA
@@ -462,7 +778,11 @@ footer strong{
 
   </section>
 
+
+  <!-- JOGOS -->
+
   <section class="matches">
+
 
     <div class="match-card">
 
@@ -471,9 +791,19 @@ footer strong{
       </div>
 
       <div class="match-content">
-        <div class="team">CDR VASCO DA GAMA</div>
-        <div class="score">—</div>
-        <div class="team">ADVERSÁRIO</div>
+
+        <div class="team">
+          CDR VASCO DA GAMA
+        </div>
+
+        <div class="score">
+          —
+        </div>
+
+        <div class="team">
+          ADVERSÁRIO
+        </div>
+
       </div>
 
       <div class="match-date">
@@ -482,6 +812,7 @@ footer strong{
 
     </div>
 
+
     <div class="match-card">
 
       <div class="match-title">
@@ -489,9 +820,19 @@ footer strong{
       </div>
 
       <div class="match-content">
-        <div class="team">CDR VASCO DA GAMA</div>
-        <div class="score">VS</div>
-        <div class="team">ADVERSÁRIO</div>
+
+        <div class="team">
+          CDR VASCO DA GAMA
+        </div>
+
+        <div class="score">
+          VS
+        </div>
+
+        <div class="team">
+          ADVERSÁRIO
+        </div>
+
       </div>
 
       <div class="match-date">
@@ -500,53 +841,127 @@ footer strong{
 
     </div>
 
+
   </section>
 
+
+  <!-- FRASE -->
+
   <section class="quote">
-    <p>“Raízes no passado, olhos no futuro.”</p>
+
+    <p>
+      “Raízes no passado, olhos no futuro.”
+    </p>
+
     <span></span>
+
   </section>
+
+
+  <!-- DESTAQUES -->
 
   <section class="features">
 
-    <a href="#" class="feature">
-      <h2>HISTÓRIA</h2>
-      <p>CONHECE O NOSSO PERCURSO →</p>
+
+    <a
+      href="#"
+      class="feature"
+    >
+
+      <h2>
+        HISTÓRIA
+      </h2>
+
+      <p>
+        CONHECE O NOSSO PERCURSO →
+      </p>
+
     </a>
 
-    <a href="#" class="feature">
-      <h2>LOJA</h2>
-      <p>VESTE AS NOSSAS CORES →</p>
+
+    <a
+      href="#"
+      class="feature"
+    >
+
+      <h2>
+        LOJA
+      </h2>
+
+      <p>
+        VESTE AS NOSSAS CORES →
+      </p>
+
     </a>
 
-    <a href="#" class="feature">
-      <h2>SÓCIOS</h2>
-      <p>FAZ PARTE DESTA FAMÍLIA →</p>
+
+    <a
+      href="#"
+      class="feature"
+    >
+
+      <h2>
+        SÓCIOS
+      </h2>
+
+      <p>
+        FAZ PARTE DESTA FAMÍLIA →
+      </p>
+
     </a>
 
-    <a href="#" class="feature">
-      <h2>CALENDÁRIO</h2>
-      <p>TODOS OS JOGOS →</p>
+
+    <a
+      href="#"
+      class="feature"
+    >
+
+      <h2>
+        CALENDÁRIO
+      </h2>
+
+      <p>
+        TODOS OS JOGOS →
+      </p>
+
     </a>
+
 
   </section>
 
 </main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
   <div>
-    <strong>CDR VASCO DA GAMA</strong><br>
+
+    <strong>
+      CDR VASCO DA GAMA
+    </strong>
+
+    <br>
+
     FUNDAÇÃO · 1947
+
   </div>
+
 
   <div>
     TRADIÇÃO · FORMAÇÃO · UNIÃO
   </div>
 
+
   <div>
     JUNTOS SOMOS MAIS FORTES
   </div>
+
 </footer>
+
 
 </body>
 </html>
