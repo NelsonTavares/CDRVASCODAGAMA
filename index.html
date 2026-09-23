@@ -46,9 +46,13 @@ a{
 header{
   height:92px;
 
-  background:#050505;
+  position:sticky;
+  top:0;
+  z-index:1000;
 
-  border-bottom:1px solid #292929;
+  background:rgba(5,5,5,.96);
+
+  border-bottom:1px solid rgba(255,255,255,.14);
 
   display:flex;
   align-items:center;
@@ -56,22 +60,23 @@ header{
 
   padding:0 7%;
 
-  position:sticky;
-  top:0;
-
-  z-index:20;
-
-  backdrop-filter:blur(8px);
+  backdrop-filter:blur(10px);
 }
+
+
+/* =========================
+   MARCA — IGUAL À LOJA
+========================= */
 
 .brand{
   display:flex;
   align-items:center;
-
   gap:14px;
 
-  min-width:auto;
+  color:#fff;
+  text-decoration:none;
 }
+
 
 .brand img{
   width:48px;
@@ -80,69 +85,69 @@ header{
   object-fit:contain;
 
   filter:
-    drop-shadow(0 0 8px rgba(255,0,0,.6))
-    drop-shadow(0 0 20px rgba(255,0,0,.25));
+    drop-shadow(0 0 7px rgba(255,0,0,.7))
+    drop-shadow(0 0 16px rgba(255,0,0,.25));
 }
 
-.brand-text strong{
-  display:block;
 
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+
+.brand-title{
   font-size:22px;
-
   font-weight:900;
-
   letter-spacing:1px;
 }
 
-.brand-text span{
-  display:block;
 
-  margin-top:3px;
-
+.brand-subtitle{
   font-size:8px;
-
   letter-spacing:3px;
-
   color:#aaa;
 }
 
 
-/* ==================================================
-   NAV
-================================================== */
+/* =========================
+   NAV — IGUAL À LOJA
+========================= */
 
 nav{
-  flex:1;
-
   display:flex;
-
-  justify-content:center;
   align-items:center;
-
-  gap:34px;
+  gap:30px;
 }
+
 
 nav a{
   position:relative;
 
-  padding:35px 0;
+  color:#fff;
+  text-decoration:none;
 
-  font-size:13px;
+  font-size:12px;
+  font-weight:800;
 
-  font-weight:bold;
+  letter-spacing:.5px;
 
-  letter-spacing:1px;
+  padding:10px 0;
 
   transition:.25s;
 }
 
+
 nav a:hover{
-  color:#ff1515;
+  color:#ff1717;
 }
 
+
 nav a.active{
-  color:#ff1515;
+  color:#ff1717;
 }
+
 
 nav a.active::after{
   content:"";
@@ -151,146 +156,87 @@ nav a.active::after{
 
   left:0;
   right:0;
-
   bottom:0;
 
   height:3px;
 
-  background:#ff1515;
+  background:#ff1717;
 
   box-shadow:
-    0 0 10px rgba(255,0,0,.6);
+    0 0 8px rgba(255,0,0,.8),
+    0 0 18px rgba(255,0,0,.35);
 }
 
 
-/* ==================================================
-   CARRINHO DESKTOP
-================================================== */
+/* =========================
+   CARRINHO — IGUAL À LOJA
+========================= */
 
-.cart-link{
+.cart-button{
+  position:relative;
+
+  margin-left:10px;
+
   width:42px;
   height:42px;
 
-  margin-left:22px;
-
-  border:1px solid #444;
-
-  border-radius:50%;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
 
-  position:relative;
+  border:1px solid rgba(255,255,255,.22);
 
-  background:#090909;
+  border-radius:50%;
 
-  transition:.25s;
-
-  flex-shrink:0;
-}
-
-.cart-link:hover{
-  border-color:#ff1515;
-
-  box-shadow:
-    0 0 15px rgba(255,0,0,.25);
-
-  transform:translateY(-2px);
-}
-
-.cart-icon{
-  width:19px;
-  height:19px;
-
-  position:relative;
-
-  display:block;
-}
-
-.cart-icon::before{
-  content:"";
-
-  position:absolute;
-
-  left:3px;
-  top:5px;
-
-  width:12px;
-  height:9px;
-
-  border:1.5px solid #fff;
-
-  border-top:none;
-
-  transform:skew(-8deg);
-}
-
-.cart-icon::after{
-  content:"••";
-
-  position:absolute;
-
-  left:4px;
-  bottom:-7px;
+  background:#0c0c0c;
 
   color:#fff;
 
-  font-size:13px;
+  cursor:pointer;
 
-  letter-spacing:3px;
+  font-size:18px;
 
-  line-height:10px;
+  transition:.25s;
 }
 
-.cart-handle{
-  position:absolute;
 
-  width:6px;
-  height:6px;
+.cart-button:hover{
+  border-color:#ff1717;
 
-  border-top:1.5px solid #fff;
-
-  left:0;
-  top:3px;
+  box-shadow:
+    0 0 15px rgba(255,0,0,.25);
 }
+
 
 .cart-count{
   position:absolute;
 
   top:-5px;
-  right:-4px;
+  right:-5px;
 
-  min-width:16px;
-  height:16px;
+  min-width:18px;
+  height:18px;
 
-  padding:0 4px;
+  padding:0 5px;
 
   border-radius:20px;
 
-  background:#ff1515;
+  background:#ff1717;
 
   color:#fff;
 
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  font-size:9px;
-
+  font-size:10px;
   font-weight:900;
 
-  line-height:1;
-
-  border:2px solid #050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 
-/* ==================================================
-   HAMBURGER
-================================================== */
+/* =========================
+   HAMBURGER MOBILE
+========================= */
 
 .menu-toggle{
   display:none;
@@ -316,12 +262,14 @@ nav a.active::after{
   transition:.25s;
 }
 
+
 .menu-toggle:hover{
-  border-color:#ff1515;
+  border-color:#ff1717;
 
   box-shadow:
     0 0 15px rgba(255,0,0,.25);
 }
+
 
 .menu-toggle span{
   display:block;
@@ -335,9 +283,9 @@ nav a.active::after{
 }
 
 
-/* ==================================================
+/* =========================
    MOBILE MENU
-================================================== */
+========================= */
 
 .mobile-menu{
   display:none;
@@ -690,73 +638,46 @@ footer strong{
 @media(max-width:900px){
 
   header{
-
     height:78px;
 
     padding:0 20px;
 
     flex-direction:row;
-
     gap:0;
-
     justify-content:space-between;
   }
 
   .brand{
-
     min-width:0;
-
     gap:10px;
   }
 
   .brand img{
-
     width:46px;
     height:46px;
   }
 
-  .brand-text strong{
-
+  .brand-title{
     font-size:17px;
-
-    letter-spacing:1.5px;
   }
 
-  .brand-text span{
-
+  .brand-subtitle{
     font-size:7px;
-
     letter-spacing:2px;
   }
-
-  /*
-    No telemóvel escondemos o menu
-    horizontal.
-  */
 
   header > nav{
     display:none;
   }
-/*
-    Aparece apenas o botão
-    dos três traços.
-  */
 
   .menu-toggle{
-
     display:flex;
 
     margin-left:auto;
-
     margin-right:0;
   }
 
-  /*
-    Menu móvel aberto
-  */
-
   .mobile-menu{
-
     position:absolute;
 
     top:78px;
@@ -785,11 +706,9 @@ footer strong{
     gap:4px;
 
     opacity:0;
-
     visibility:hidden;
 
-    transform:
-      translateY(-10px);
+    transform:translateY(-10px);
 
     transition:
       opacity .25s ease,
@@ -798,21 +717,15 @@ footer strong{
   }
 
   .mobile-menu.open{
-
     opacity:1;
-
     visibility:visible;
-
-    transform:
-      translateY(0);
+    transform:translateY(0);
   }
 
   .mobile-menu a{
-
     display:flex;
 
     align-items:center;
-
     justify-content:space-between;
 
     min-height:52px;
@@ -822,9 +735,7 @@ footer strong{
     border-bottom:1px solid #242424;
 
     font-size:13px;
-
     font-weight:bold;
-
     letter-spacing:1.5px;
 
     color:#fff;
@@ -833,19 +744,15 @@ footer strong{
   }
 
   .mobile-menu a:hover{
-
     color:#ff1515;
-
     padding-left:14px;
   }
 
   .mobile-menu a.active{
-
     color:#ff1515;
   }
 
   .mobile-menu .mobile-cart{
-
     margin-top:8px;
 
     border:1px solid #333;
@@ -856,23 +763,17 @@ footer strong{
   }
 
   .mobile-cart-left{
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
   }
 
   .mobile-cart-icon{
-
     font-size:18px;
   }
 
   .mobile-cart-count{
-
     min-width:20px;
-
     height:20px;
 
     padding:0 5px;
@@ -884,160 +785,114 @@ footer strong{
     color:#fff;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     font-size:10px;
-
     font-weight:900;
   }
 
   .hero{
-
     height:calc(100vh - 78px);
-
     min-height:600px;
-
     background-position:center center;
   }
 
   .matches{
-
     grid-template-columns:1fr;
-
     margin-top:-40px;
   }
 
   .features{
-
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
 }
 
-
-/* ==================================================
-   MOBILE
-================================================== */
-
 @media(max-width:550px){
 
   header{
-
     height:72px;
-
     padding:0 15px;
   }
 
   .brand{
-
     gap:9px;
   }
 
   .brand img{
-
     width:42px;
     height:42px;
   }
 
-  .brand-text strong{
-
+  .brand-title{
     font-size:15px;
-
     letter-spacing:1px;
   }
 
-  .brand-text span{
-
+  .brand-subtitle{
     font-size:6px;
-
     letter-spacing:1.5px;
   }
 
   .menu-toggle{
-
     width:40px;
     height:40px;
   }
 
   .menu-toggle span{
-
     width:17px;
   }
 
   .mobile-menu{
-
     top:72px;
-
-    padding:
-      10px 15px 18px;
+    padding:10px 15px 18px;
   }
 
   .mobile-menu a{
-
     min-height:50px;
-
     font-size:12px;
   }
 
   .hero{
-
     height:calc(100vh - 72px);
-
     min-height:520px;
-
     background-position:center center;
   }
 
   .matches{
-
     padding:0 12px;
-
     margin-top:-30px;
   }
 
   .match-content{
-
     gap:12px;
   }
 
   .team{
-
     font-size:11px;
   }
 
   .score{
-
     font-size:30px;
   }
 
   .features{
-
     grid-template-columns:1fr;
-
-    padding:
-      0 15px 60px;
+    padding:0 15px 60px;
   }
 
   .quote p{
-
     font-size:23px;
   }
 
   footer{
-
     flex-direction:column;
-
     gap:15px;
-
     text-align:center;
   }
 
 }
-
 
 /* ==================================================
    ANIMAÇÃO DO HAMBURGER
@@ -1085,27 +940,22 @@ footer strong{
 
     <div class="brand-text">
 
-      <strong>
+      <div class="brand-title">
         CDR VASCO DA GAMA
-      </strong>
+      </div>
 
-      <span>
+      <div class="brand-subtitle">
         CLUBE DESPORTIVO E RECREATIVO
-      </span>
+      </div>
 
     </div>
 
   </a>
 
 
-  <!-- MENU DESKTOP -->
-
   <nav>
 
-    <a
-      href="index.html"
-      class="active"
-    >
+    <a href="index.html" class="active">
       HOME
     </a>
 
@@ -1125,27 +975,20 @@ footer strong{
       SÓCIOS
     </a>
 
-
-    <!-- CARRINHO -->
-
-    <a
-      href="carrinho.html"
-      class="cart-link"
-      aria-label="Carrinho de compras"
+    <button
+      class="cart-button"
+      onclick="window.location.href='carrinho.html'"
+      aria-label="Carrinho"
+      type="button"
     >
 
-      <span class="cart-icon">
-        <span class="cart-handle"></span>
-      </span>
+      🛒
 
-      <span
-        class="cart-count"
-        id="cartCountDesktop"
-      >
+      <span class="cart-count" id="cartCountDesktop">
         0
       </span>
 
-    </a>
+    </button>
 
   </nav>
 
