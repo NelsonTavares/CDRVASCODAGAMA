@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>CDR Vasco da Gama</title>
 
 <style>
+
+/* ==================================================
+   RESET
+================================================== */
+
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 html{
@@ -20,115 +30,166 @@ html{
 body{
   background:#050505;
   color:#fff;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-/* =========================
-   HEADER / MENU PRINCIPAL
-========================= */
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
 
 header{
   height:92px;
+
   background:#050505;
+
+  border-bottom:1px solid #292929;
+
   display:flex;
   align-items:center;
-  padding:0 40px;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,.08);
+
+  padding:0 5%;
+
+  position:relative;
+  z-index:20;
 }
 
-.header-left{
+.brand{
   display:flex;
   align-items:center;
+
   gap:15px;
-  flex-shrink:0;
+
+  min-width:330px;
 }
 
-.header-left img{
+.brand img{
   width:58px;
   height:58px;
+
   object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 8px rgba(255,0,0,.6))
+    drop-shadow(0 0 20px rgba(255,0,0,.25));
 }
 
-.club-name{
-  display:flex;
-  flex-direction:column;
-  line-height:1;
-}
+.brand-text strong{
+  display:block;
 
-.club-name strong{
-  font-size:20px;
+  font-size:22px;
+
   letter-spacing:2px;
-  font-weight:800;
 }
 
-.club-name span{
-  margin-top:7px;
-  font-size:10px;
-  letter-spacing:2.5px;
-  color:#aaa;
+.brand-text span{
+  display:block;
+
+  margin-top:4px;
+
+  font-size:9px;
+
+  letter-spacing:4px;
+
+  color:#999;
 }
+
+
+/* ==================================================
+   NAV
+================================================== */
 
 nav{
-  margin-left:auto;
+  flex:1;
+
   display:flex;
+
+  justify-content:center;
   align-items:center;
+
   gap:34px;
 }
 
 nav a{
   position:relative;
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:1.5px;
-  padding:10px 0;
-  transition:.25s ease;
-}
 
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:0;
-  height:2px;
-  background:#e00000;
-  transition:.25s ease;
+  padding:35px 0;
+
+  font-size:13px;
+
+  font-weight:bold;
+
+  letter-spacing:1px;
+
+  transition:.25s;
 }
 
 nav a:hover{
-  color:#e00000;
-}
-
-nav a:hover::after{
-  width:100%;
+  color:#ff1515;
 }
 
 nav a.active{
-  color:#e00000;
+  color:#ff1515;
 }
 
 nav a.active::after{
-  width:100%;
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+
+  bottom:20px;
+
+  height:3px;
+
+  background:#ff1515;
+
+  box-shadow:
+    0 0 10px rgba(255,0,0,.6);
 }
 
-/* =========================
-   HERO
-========================= */
+
+/* ==================================================
+   HERO / FUNDO PRINCIPAL
+================================================== */
 
 .hero{
+
+  /*
+    O hero acompanha a altura do ecrã.
+    Não depende de 50%, 75% ou 100% de zoom.
+  */
+
   height:calc(100vh - 92px);
+
+  /*
+    Evita que fique demasiado pequeno
+    em ecrãs baixos.
+  */
+
   min-height:650px;
+
   position:relative;
+
   overflow:hidden;
+
   display:flex;
+
   justify-content:center;
   align-items:center;
+
   text-align:center;
+
+  /*
+    A imagem original NÃO é alterada.
+  */
 
   background:
     url("fundohome.png")
@@ -136,12 +197,21 @@ nav a.active::after{
     no-repeat;
 }
 
+
+/* ==================================================
+   FADE DA IMAGEM
+================================================== */
+
 .hero::after{
+
   content:"";
+
   position:absolute;
+
   inset:0;
 
   background:
+
     linear-gradient(
       to bottom,
       transparent 45%,
@@ -149,6 +219,7 @@ nav a.active::after{
       rgba(5,5,5,.55) 75%,
       #050505 100%
     ),
+
     linear-gradient(
       to right,
       rgba(0,0,0,.30) 0%,
@@ -160,115 +231,492 @@ nav a.active::after{
   pointer-events:none;
 }
 
-/* =========================
-   FOOTER
-========================= */
 
-footer{
-  background:#050505;
-  border-top:1px solid rgba(255,255,255,.08);
-  padding:30px 20px;
+/*
+   Não existe texto adicional dentro do HERO.
+   O texto que aparece na imagem vem do próprio
+   fundohome.png.
+*/
+
+
+/* ==================================================
+   JOGOS
+================================================== */
+
+.matches{
+
+  max-width:1100px;
+
+  margin:-75px auto 0;
+
+  position:relative;
+
+  z-index:5;
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:20px;
+
+  padding:0 20px;
+}
+
+.match-card{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,15,15,.97),
+      rgba(3,3,3,.97)
+    );
+
+  border:1px solid #444;
+
+  border-left:4px solid #e60000;
+
+  padding:27px;
+
   text-align:center;
-  color:#777;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.75);
+}
+
+.match-title{
+
+  color:#ccc;
+
+  font-size:13px;
+
+  letter-spacing:2px;
+
+  margin-bottom:22px;
+}
+
+.match-content{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:28px;
+}
+
+.team{
+
+  font-weight:bold;
+
+  font-size:14px;
+}
+
+.score{
+
+  font-size:38px;
+
+  font-weight:900;
+
+  color:#fff;
+}
+
+.match-date{
+
+  margin-top:16px;
+
+  color:#999;
+
   font-size:12px;
+}
+
+
+/* ==================================================
+   FRASE
+================================================== */
+
+.quote{
+
+  text-align:center;
+
+  padding:85px 20px 60px;
+}
+
+.quote p{
+
+  font-size:30px;
+
+  font-style:italic;
+
+  color:#ddd;
+
+  text-shadow:
+    0 3px 15px #000;
+}
+
+.quote span{
+
+  display:block;
+
+  width:70px;
+
+  height:3px;
+
+  background:#e00000;
+
+  margin:20px auto 0;
+
+  box-shadow:
+    0 0 12px rgba(255,0,0,.5);
+}
+
+
+/* ==================================================
+   DESTAQUES
+================================================== */
+
+.features{
+
+  max-width:1400px;
+
+  margin:auto;
+
+  padding:0 25px 80px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:18px;
+}
+
+.feature{
+
+  min-height:210px;
+
+  border:1px solid #333;
+
+  background:
+    linear-gradient(
+      145deg,
+      #171717,
+      #070707
+    );
+
+  padding:28px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:flex-end;
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:.3s;
+}
+
+.feature::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:160px;
+
+  height:160px;
+
+  background:
+    url("cdrvg.png")
+    center / contain
+    no-repeat;
+
+  opacity:.06;
+
+  right:-30px;
+
+  top:-30px;
+
+  filter:
+    drop-shadow(
+      0 0 15px
+      rgba(255,0,0,.8)
+    );
+}
+
+.feature:hover{
+
+  transform:
+    translateY(-6px);
+
+  border-color:#e00000;
+
+  box-shadow:
+    0 12px 35px
+    rgba(255,0,0,.12);
+}
+
+.feature h2{
+
+  position:relative;
+
+  z-index:2;
+
+  font-size:25px;
+
+  letter-spacing:2px;
+}
+
+.feature p{
+
+  position:relative;
+
+  z-index:2;
+
+  color:#999;
+
+  margin-top:8px;
+
+  font-size:12px;
+
   letter-spacing:1px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer{
+
+  border-top:1px solid #292929;
+
+  padding:35px 6%;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  color:#888;
+
+  font-size:11px;
+
+  letter-spacing:2px;
+}
+
+footer strong{
+
+  color:#fff;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
 
 @media(max-width:900px){
 
   header{
+
     height:auto;
-    min-height:92px;
-    padding:15px 20px;
-    flex-wrap:wrap;
+
+    padding:18px;
+
+    flex-direction:column;
+
     gap:15px;
   }
 
-  .header-left{
-    width:100%;
-    justify-content:center;
+  .brand{
+
+    min-width:0;
   }
 
   nav{
-    width:100%;
-    margin:0;
-    justify-content:center;
-    gap:18px;
+
     flex-wrap:wrap;
+
+    gap:18px;
   }
 
   nav a{
-    font-size:11px;
-    letter-spacing:1px;
+
+    padding:5px;
+  }
+
+  nav a.active::after{
+
+    bottom:-5px;
   }
 
   .hero{
-    height:calc(100vh - 140px);
-    min-height:550px;
+
+    height:calc(100vh - 130px);
+
+    min-height:600px;
+
+    background-position:center center;
   }
+
+  .matches{
+
+    grid-template-columns:1fr;
+
+    margin-top:-40px;
+  }
+
+  .features{
+
+    grid-template-columns:
+      1fr 1fr;
+  }
+
 }
 
-@media(max-width:600px){
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:550px){
 
   header{
-    padding:12px 10px;
+
+    padding:15px;
   }
 
-  .header-left img{
-    width:48px;
-    height:48px;
+  .brand-text strong{
+
+    font-size:18px;
   }
 
-  .club-name strong{
-    font-size:16px;
-  }
+  .brand-text span{
 
-  .club-name span{
-    font-size:8px;
+    font-size:7px;
+
     letter-spacing:2px;
   }
 
   nav{
-    gap:12px;
+
+    gap:14px;
   }
 
   nav a{
-    font-size:10px;
+
+    font-size:11px;
   }
+
+  .hero{
+
+    height:calc(100vh - 150px);
+
+    min-height:520px;
+
+    background-position:center center;
+  }
+
+  .matches{
+
+    padding:0 12px;
+
+    margin-top:-30px;
+  }
+
+  .match-content{
+
+    gap:12px;
+  }
+
+  .team{
+
+    font-size:11px;
+  }
+
+  .score{
+
+    font-size:30px;
+  }
+
+  .features{
+
+    grid-template-columns:1fr;
+
+    padding:
+      0 15px 60px;
+  }
+
+  .quote p{
+
+    font-size:23px;
+  }
+
+  footer{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    text-align:center;
+  }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
 <header>
 
-  <div class="header-left">
+  <a href="#" class="brand">
 
-    <img src="cdrvg.png" alt="CDR Vasco da Gama">
+    <img
+      src="cdrvg.png"
+      alt="CDR Vasco da Gama"
+    >
 
-    <div class="club-name">
-      <strong>CDR VASCO DA GAMA</strong>
-      <span>CLUBE DESPORTIVO E RECREATIVO</span>
+    <div class="brand-text">
+
+      <strong>
+        CDR VASCO DA GAMA
+      </strong>
+
+      <span>
+        CLUBE DESPORTIVO E RECREATIVO
+      </span>
+
     </div>
 
-  </div>
+  </a>
+
 
   <nav>
 
-    <a href="index.html" class="active">
+    <a
+      href="#"
+      class="active"
+    >
       HOME
     </a>
 
-    <a href="historia.html">
+    <a href="#">
       HISTÓRIA
     </a>
 
-    <a href="loja.html">
+    <a href="#">
       LOJA
     </a>
 
@@ -284,15 +732,211 @@ footer{
 
 </header>
 
+
+
+<!-- ==================================================
+     CONTEÚDO PRINCIPAL
+================================================== -->
+
 <main>
 
-  <section class="hero"></section>
+
+  <!-- ==================================================
+       HERO
+  ================================================== -->
+
+  <section class="hero">
+  </section>
+
+
+
+  <!-- ==================================================
+       JOGOS
+  ================================================== -->
+
+  <section class="matches">
+
+
+    <!-- ÚLTIMO JOGO -->
+
+    <div class="match-card">
+
+      <div class="match-title">
+        ÚLTIMO JOGO · SENIORES
+      </div>
+
+      <div class="match-content">
+
+        <div class="team">
+          CDR VASCO DA GAMA
+        </div>
+
+        <div class="score">
+          —
+        </div>
+
+        <div class="team">
+          ADVERSÁRIO
+        </div>
+
+      </div>
+
+      <div class="match-date">
+        Resultado a inserir
+      </div>
+
+    </div>
+
+
+
+    <!-- PRÓXIMO JOGO -->
+
+    <div class="match-card">
+
+      <div class="match-title">
+        PRÓXIMO JOGO · SENIORES
+      </div>
+
+      <div class="match-content">
+
+        <div class="team">
+          CDR VASCO DA GAMA
+        </div>
+
+        <div class="score">
+          VS
+        </div>
+
+        <div class="team">
+          ADVERSÁRIO
+        </div>
+
+      </div>
+
+      <div class="match-date">
+        Data · Hora · Local
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==================================================
+       FRASE
+  ================================================== -->
+
+  <section class="quote">
+
+    <p>
+      “Raízes no passado, olhos no futuro.”
+    </p>
+
+    <span></span>
+
+  </section>
+
+
+
+  <!-- ==================================================
+       DESTAQUES
+  ================================================== -->
+
+  <section class="features">
+
+
+    <a href="#" class="feature">
+
+      <h2>
+        HISTÓRIA
+      </h2>
+
+      <p>
+        CONHECE O NOSSO PERCURSO →
+      </p>
+
+    </a>
+
+
+
+    <a href="#" class="feature">
+
+      <h2>
+        LOJA
+      </h2>
+
+      <p>
+        VESTE AS NOSSAS CORES →
+      </p>
+
+    </a>
+
+
+
+    <a href="#" class="feature">
+
+      <h2>
+        SÓCIOS
+      </h2>
+
+      <p>
+        FAZ PARTE DESTA FAMÍLIA →
+      </p>
+
+    </a>
+
+
+
+    <a href="#" class="feature">
+
+      <h2>
+        CALENDÁRIO
+      </h2>
+
+      <p>
+        TODOS OS JOGOS →
+      </p>
+
+    </a>
+
+
+  </section>
 
 </main>
 
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
 <footer>
-  © CDR VASCO DA GAMA — TODOS OS DIREITOS RESERVADOS
+
+  <div>
+
+    <strong>
+      CDR VASCO DA GAMA
+    </strong>
+
+    <br>
+
+    FUNDAÇÃO · 1947
+
+  </div>
+
+
+  <div>
+    TRADIÇÃO · FORMAÇÃO · UNIÃO
+  </div>
+
+
+  <div>
+    AMOR DE PRETO E BRANCO
+  </div>
+
 </footer>
+
 
 </body>
 </html>
