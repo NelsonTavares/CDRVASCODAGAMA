@@ -52,25 +52,30 @@ header{
 
   display:flex;
   align-items:center;
+  justify-content:space-between;
 
-  padding:0 5%;
+  padding:0 7%;
 
-  position:relative;
+  position:sticky;
+  top:0;
+
   z-index:20;
+
+  backdrop-filter:blur(8px);
 }
 
 .brand{
   display:flex;
   align-items:center;
 
-  gap:15px;
+  gap:14px;
 
-  min-width:330px;
+  min-width:auto;
 }
 
 .brand img{
-  width:58px;
-  height:58px;
+  width:48px;
+  height:48px;
 
   object-fit:contain;
 
@@ -84,19 +89,21 @@ header{
 
   font-size:22px;
 
-  letter-spacing:2px;
+  font-weight:900;
+
+  letter-spacing:1px;
 }
 
 .brand-text span{
   display:block;
 
-  margin-top:4px;
+  margin-top:3px;
 
-  font-size:9px;
+  font-size:8px;
 
-  letter-spacing:4px;
+  letter-spacing:3px;
 
-  color:#999;
+  color:#aaa;
 }
 
 
@@ -145,7 +152,7 @@ nav a.active::after{
   left:0;
   right:0;
 
-  bottom:20px;
+  bottom:0;
 
   height:3px;
 
@@ -730,18 +737,7 @@ footer strong{
   header > nav{
     display:none;
   }
-
-  /*
-    O carrinho deixa de ficar
-    diretamente no cabeçalho.
-    Ele aparece dentro do menu.
-  */
-
-  header > .cart-link{
-    display:none;
-  }
-
-  /*
+/*
     Aparece apenas o botão
     dos três traços.
   */
@@ -1129,31 +1125,29 @@ footer strong{
       SÓCIOS
     </a>
 
-  </nav>
 
+    <!-- CARRINHO -->
 
-  <!-- CARRINHO DESKTOP -->
-
-  <a
-    href="carrinho.html"
-    class="cart-link"
-    aria-label="Carrinho de compras"
-  >
-
-    <span class="cart-icon">
-
-      <span class="cart-handle"></span>
-
-    </span>
-
-    <span
-      class="cart-count"
-      id="cartCountDesktop"
+    <a
+      href="carrinho.html"
+      class="cart-link"
+      aria-label="Carrinho de compras"
     >
-      0
-    </span>
 
-  </a>
+      <span class="cart-icon">
+        <span class="cart-handle"></span>
+      </span>
+
+      <span
+        class="cart-count"
+        id="cartCountDesktop"
+      >
+        0
+      </span>
+
+    </a>
+
+  </nav>
 
 
   <!-- BOTÃO MOBILE -->
