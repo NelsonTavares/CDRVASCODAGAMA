@@ -7,6 +7,7 @@
   <title>História | CDR Vasco da Gama</title>
 
   <style>
+
     *{
       box-sizing:border-box;
       margin:0;
@@ -24,6 +25,7 @@
       overflow-x:hidden;
     }
 
+
     /* =========================
        CABEÇALHO
     ========================= */
@@ -35,6 +37,7 @@
       z-index:1000;
 
       background:rgba(5,5,5,.96);
+
       border-bottom:1px solid rgba(255,255,255,.15);
 
       display:flex;
@@ -42,23 +45,32 @@
       justify-content:space-between;
 
       padding:0 7%;
+
       backdrop-filter:blur(8px);
     }
+
 
     .brand{
       display:flex;
       align-items:center;
       gap:14px;
+
+      text-decoration:none;
+      color:#fff;
     }
+
 
     .brand img{
       width:48px;
       height:48px;
+
       object-fit:contain;
+
       filter:
         drop-shadow(0 0 7px rgba(255,0,0,.7))
         drop-shadow(0 0 16px rgba(255,0,0,.25));
     }
+
 
     .brand-text{
       display:flex;
@@ -66,11 +78,13 @@
       gap:3px;
     }
 
+
     .brand-title{
       font-size:22px;
       font-weight:900;
       letter-spacing:1px;
     }
+
 
     .brand-subtitle{
       font-size:8px;
@@ -78,45 +92,60 @@
       color:#aaa;
     }
 
+
     nav{
       display:flex;
       align-items:center;
       gap:30px;
     }
 
+
     nav a{
       position:relative;
+
       color:#fff;
+
       text-decoration:none;
+
       font-size:12px;
       font-weight:800;
+
       letter-spacing:.5px;
+
       padding:10px 0;
+
       transition:.25s;
     }
+
 
     nav a:hover{
       color:#ff1717;
     }
 
+
     nav a.active{
       color:#ff1717;
     }
 
+
     nav a.active::after{
       content:"";
+
       position:absolute;
+
       left:0;
       right:0;
       bottom:0;
 
       height:3px;
+
       background:#ff1717;
 
       box-shadow:
         0 0 8px rgba(255,0,0,.8),
         0 0 18px rgba(255,0,0,.35);
     }
+
 
 
     /* =========================
@@ -142,28 +171,38 @@
         );
     }
 
+
     .history-intro h1{
       font-size:clamp(44px,6vw,86px);
+
       font-weight:900;
+
       letter-spacing:3px;
+
       text-transform:uppercase;
 
       text-shadow:
         0 0 20px rgba(255,0,0,.15);
     }
 
+
     .history-intro h1 span{
       color:#ff1717;
     }
 
+
     .history-intro p{
       max-width:700px;
+
       margin:22px auto 0;
 
       color:#aaa;
+
       font-size:15px;
+
       line-height:1.8;
     }
+
 
 
     /* =========================
@@ -172,14 +211,18 @@
 
     .story{
       position:relative;
+
       height:600vh;
     }
 
+
     .story-stage{
       position:sticky;
+
       top:92px;
 
       height:calc(100vh - 92px);
+
       min-height:650px;
 
       overflow:hidden;
@@ -191,6 +234,7 @@
           transparent 48%
         );
     }
+
 
 
     /* =========================
@@ -223,7 +267,12 @@
         0 0 22px rgba(255,0,0,.3);
 
       z-index:2;
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
     }
+
 
 
     /* =========================
@@ -255,29 +304,36 @@
       z-index:5;
     }
 
+
     .story-dot:nth-child(1){
       top:0%;
     }
+
 
     .story-dot:nth-child(2){
       top:20%;
     }
 
+
     .story-dot:nth-child(3){
       top:40%;
     }
+
 
     .story-dot:nth-child(4){
       top:60%;
     }
 
+
     .story-dot:nth-child(5){
       top:80%;
     }
 
+
     .story-dot:nth-child(6){
       top:100%;
     }
+
 
     .story-dot.active{
       width:22px;
@@ -292,6 +348,7 @@
         0 0 18px #ff1111,
         0 0 40px rgba(255,0,0,.75);
     }
+
 
 
     /* =========================
@@ -313,6 +370,7 @@
       align-items:center;
 
       opacity:0;
+
       visibility:hidden;
 
       transform:translateY(25px);
@@ -325,11 +383,15 @@
       z-index:3;
     }
 
+
     .story-panel.active{
       opacity:1;
+
       visibility:visible;
+
       transform:translateY(0);
     }
+
 
 
     /* =========================
@@ -348,6 +410,7 @@
       text-align:right;
     }
 
+
     .story-year{
       color:#ff1717;
 
@@ -363,6 +426,7 @@
         0 0 20px rgba(255,0,0,.25);
     }
 
+
     .story-content h2{
       font-size:26px;
 
@@ -372,6 +436,7 @@
 
       margin-bottom:22px;
     }
+
 
     .story-content p{
       color:#aaa;
@@ -384,8 +449,9 @@
     }
 
 
+
     /* =========================
-       FOTOGRAFIA
+       FOTOGRAFIAS
     ========================= */
 
     .story-media{
@@ -397,6 +463,7 @@
 
       padding-left:35px;
     }
+
 
     .story-media img{
       display:block;
@@ -422,15 +489,18 @@
         filter .6s ease;
     }
 
+
     .story-panel.active .story-media img{
       filter:
         brightness(.92)
         contrast(1.05);
     }
 
+
     .story-media img:hover{
       transform:scale(1.015);
     }
+
 
     .story-caption{
       margin-top:12px;
@@ -445,11 +515,12 @@
     }
 
 
+
     /* =========================
-       PAINÉIS ALTERNADOS
+       PAINÉIS DO LADO OPOSTO
     ========================= */
 
-    .story-panel:nth-of-type(2n) .story-content{
+    .story-panel.reverse .story-content{
       grid-column:3;
 
       justify-self:start;
@@ -460,7 +531,8 @@
       text-align:left;
     }
 
-    .story-panel:nth-of-type(2n) .story-media{
+
+    .story-panel.reverse .story-media{
       grid-column:1;
 
       justify-self:end;
@@ -468,6 +540,7 @@
       padding-right:35px;
       padding-left:0;
     }
+
 
 
     /* =========================
@@ -478,6 +551,7 @@
       position:absolute;
 
       bottom:16px;
+
       left:50%;
 
       transform:translateX(-50%);
@@ -493,32 +567,77 @@
       white-space:nowrap;
 
       z-index:10;
+
+      transition:
+        opacity .6s ease;
     }
+
+
+    .story-stage.future-active .scroll-hint{
+      opacity:0;
+    }
+
 
 
     /* =========================
-       FUTURO
+       ECRÃ FINAL — FUTURO
     ========================= */
 
-    .future-panel{
-      text-align:center;
+    .story-stage.future-active .story-line{
+      opacity:0;
     }
+
+
+    .story-stage.future-active .story-dot{
+      opacity:0;
+    }
+
 
     .future-panel .story-content{
       grid-column:1 / 4;
 
       justify-self:center;
 
-      width:min(750px,85%);
+      width:min(1000px,88%);
 
       padding:0;
 
       text-align:center;
     }
 
+
     .future-panel .story-year{
-      font-size:clamp(42px,5vw,70px);
+      font-size:clamp(70px,8vw,120px);
+
+      margin-bottom:18px;
+
+      text-shadow:
+        0 0 25px rgba(255,0,0,.30),
+        0 0 55px rgba(255,0,0,.12);
     }
+
+
+    .future-panel .story-content h2{
+      font-size:clamp(30px,4vw,52px);
+
+      letter-spacing:2px;
+
+      margin-bottom:28px;
+    }
+
+
+    .future-panel .story-content p{
+      max-width:850px;
+
+      margin:0 auto;
+
+      font-size:clamp(16px,1.4vw,22px);
+
+      line-height:1.8;
+
+      color:#c5c5c5;
+    }
+
 
 
     /* =========================
@@ -529,6 +648,7 @@
 
       header{
         height:auto;
+
         min-height:75px;
 
         padding:12px 20px;
@@ -536,37 +656,48 @@
         gap:15px;
       }
 
+
       .brand-title{
         font-size:16px;
       }
 
+
       .brand-subtitle{
         font-size:6px;
+
         letter-spacing:2px;
       }
+
 
       .brand img{
         width:38px;
         height:38px;
       }
 
+
       nav{
         gap:12px;
       }
+
 
       nav a{
         font-size:9px;
       }
 
+
       .story-stage{
         top:75px;
+
         height:calc(100vh - 75px);
+
         min-height:600px;
       }
+
 
       .story-line{
         left:50%;
       }
+
 
       .story-panel{
         grid-template-columns:
@@ -575,40 +706,67 @@
           1fr;
       }
 
+
       .story-content{
         width:100%;
+
         padding-right:15px;
       }
 
+
       .story-media{
         width:100%;
+
         padding-left:15px;
       }
+
 
       .story-content h2{
         font-size:19px;
       }
 
+
       .story-content p{
         font-size:11px;
+
         line-height:1.6;
       }
+
 
       .story-year{
         font-size:42px;
       }
 
+
       .story-media img{
         max-height:260px;
       }
 
-      .story-panel:nth-of-type(2n) .story-content{
+
+      .story-panel.reverse .story-content{
         padding-left:15px;
       }
 
-      .story-panel:nth-of-type(2n) .story-media{
+
+      .story-panel.reverse .story-media{
         padding-right:15px;
       }
+
+
+      .future-panel .story-year{
+        font-size:58px;
+      }
+
+
+      .future-panel .story-content h2{
+        font-size:25px;
+      }
+
+
+      .future-panel .story-content p{
+        font-size:14px;
+      }
+
     }
 
   </style>
@@ -624,7 +782,7 @@
 
   <header>
 
-    <a href="index.html" class="brand" style="text-decoration:none;color:#fff;">
+    <a href="index.html" class="brand">
 
       <img
         src="cdrvg.png"
@@ -675,7 +833,7 @@
 
 
   <!-- =========================
-       INTRO
+       INTRODUÇÃO
   ========================= -->
 
   <section class="history-intro">
@@ -707,15 +865,20 @@
     <div class="story-stage">
 
 
-      <!-- LINHA -->
+      <!-- LINHA CENTRAL -->
 
       <div class="story-line">
 
         <div class="story-dot active"></div>
+
         <div class="story-dot"></div>
+
         <div class="story-dot"></div>
+
         <div class="story-dot"></div>
+
         <div class="story-dot"></div>
+
         <div class="story-dot"></div>
 
       </div>
@@ -774,7 +937,7 @@
            2000
       ========================= -->
 
-      <div class="story-panel">
+      <div class="story-panel reverse">
 
         <div class="story-content">
 
@@ -817,7 +980,7 @@
 
 
       <!-- =========================
-           2021 - 2023
+           2021–2023
       ========================= -->
 
       <div class="story-panel">
@@ -864,10 +1027,10 @@
 
 
       <!-- =========================
-           2022 - CAMPO
+           2022 — CAMPO
       ========================= -->
 
-      <div class="story-panel">
+      <div class="story-panel reverse">
 
         <div class="story-content">
 
@@ -910,7 +1073,7 @@
 
 
       <!-- =========================
-           2022 - FORMAÇÃO
+           2022 — FORMAÇÃO
       ========================= -->
 
       <div class="story-panel">
@@ -983,6 +1146,8 @@
 
 
 
+      <!-- INDICAÇÃO -->
+
       <div class="scroll-hint">
         CONTINUA A DESCER
       </div>
@@ -994,6 +1159,10 @@
 
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
 
     const panels =
@@ -1004,6 +1173,9 @@
 
     const story =
       document.querySelector(".story");
+
+    const stage =
+      document.querySelector(".story-stage");
 
 
     function updateStory(){
@@ -1062,6 +1234,17 @@
           );
 
         }
+      );
+
+
+      /*
+        Quando chegamos ao último painel,
+        transformamos a timeline num ecrã final.
+      */
+
+      stage.classList.toggle(
+        "future-active",
+        index === panels.length - 1
       );
 
     }
