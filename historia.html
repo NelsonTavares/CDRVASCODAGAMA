@@ -1,1678 +1,1089 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>História | CDR Vasco da Gama</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050505;
+      color:#fff;
+      font-family:Arial, Helvetica, sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* =========================
+       CABEÇALHO
+    ========================= */
+
+    header{
+      height:92px;
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+      background:rgba(5,5,5,.96);
+      border-bottom:1px solid rgba(255,255,255,.15);
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      padding:0 7%;
+      backdrop-filter:blur(8px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .brand img{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+      filter:
+        drop-shadow(0 0 7px rgba(255,0,0,.7))
+        drop-shadow(0 0 16px rgba(255,0,0,.25));
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
+
+    .brand-title{
+      font-size:22px;
+      font-weight:900;
+      letter-spacing:1px;
+    }
+
+    .brand-subtitle{
+      font-size:8px;
+      letter-spacing:3px;
+      color:#aaa;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:30px;
+    }
+
+    nav a{
+      position:relative;
+      color:#fff;
+      text-decoration:none;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.5px;
+      padding:10px 0;
+      transition:.25s;
+    }
+
+    nav a:hover{
+      color:#ff1717;
+    }
+
+    nav a.active{
+      color:#ff1717;
+    }
 
-<meta charset="UTF-8">
+    nav a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+      height:3px;
+      background:#ff1717;
 
-<title>História | CDR Vasco da Gama</title>
+      box-shadow:
+        0 0 8px rgba(255,0,0,.8),
+        0 0 18px rgba(255,0,0,.35);
+    }
 
 
-<style>
+    /* =========================
+       INTRODUÇÃO
+    ========================= */
 
-/* ==================================================
-   RESET
-================================================== */
+    .history-intro{
+      min-height:360px;
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-html{
-  scroll-behavior:smooth;
-}
+      text-align:center;
 
-body{
-  background:#050505;
-  color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
-}
+      padding:80px 20px 60px;
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(120,0,0,.18),
+          transparent 55%
+        );
+    }
 
+    .history-intro h1{
+      font-size:clamp(44px,6vw,86px);
+      font-weight:900;
+      letter-spacing:3px;
+      text-transform:uppercase;
 
-/* ==================================================
-   HEADER
-================================================== */
+      text-shadow:
+        0 0 20px rgba(255,0,0,.15);
+    }
 
-header{
+    .history-intro h1 span{
+      color:#ff1717;
+    }
 
-  height:92px;
+    .history-intro p{
+      max-width:700px;
+      margin:22px auto 0;
 
-  background:#050505;
+      color:#aaa;
+      font-size:15px;
+      line-height:1.8;
+    }
 
-  border-bottom:1px solid #292929;
 
-  display:flex;
-  align-items:center;
+    /* =========================
+       STORY
+    ========================= */
 
-  padding:0 5%;
+    .story{
+      position:relative;
+      height:600vh;
+    }
 
-  position:sticky;
+    .story-stage{
+      position:sticky;
+      top:92px;
 
-  top:0;
+      height:calc(100vh - 92px);
+      min-height:650px;
 
-  z-index:100;
-}
+      overflow:hidden;
 
-.brand{
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(90,0,0,.12),
+          transparent 48%
+        );
+    }
 
-  display:flex;
 
-  align-items:center;
+    /* =========================
+       LINHA CENTRAL
+    ========================= */
 
-  gap:15px;
+    .story-line{
+      position:absolute;
 
-  min-width:330px;
-}
+      top:7%;
+      bottom:7%;
 
-.brand img{
+      left:50%;
 
-  width:58px;
-  height:58px;
+      width:3px;
 
-  object-fit:contain;
+      transform:translateX(-50%);
 
-  filter:
-    drop-shadow(0 0 8px rgba(255,0,0,.65))
-    drop-shadow(0 0 20px rgba(255,0,0,.25));
-}
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,0,0,.25),
+          #ff1111 15%,
+          #ff1111 85%,
+          rgba(255,0,0,.25)
+        );
 
-.brand-text strong{
+      box-shadow:
+        0 0 7px rgba(255,0,0,.85),
+        0 0 22px rgba(255,0,0,.3);
 
-  display:block;
+      z-index:2;
+    }
 
-  font-size:22px;
 
-  letter-spacing:2px;
-}
+    /* =========================
+       PONTOS
+    ========================= */
 
-.brand-text span{
+    .story-dot{
+      position:absolute;
 
-  display:block;
+      left:50%;
 
-  margin-top:4px;
+      width:16px;
+      height:16px;
 
-  font-size:9px;
+      transform:translate(-50%,-50%);
 
-  letter-spacing:4px;
+      border-radius:50%;
 
-  color:#999;
-}
+      background:#050505;
 
+      border:2px solid #ff1111;
 
-/* ==================================================
-   MENU
-================================================== */
+      box-shadow:
+        0 0 5px rgba(255,0,0,.35);
 
-nav{
+      transition:
+        .4s ease;
 
-  flex:1;
+      z-index:5;
+    }
 
-  display:flex;
+    .story-dot:nth-child(1){
+      top:0%;
+    }
 
-  justify-content:center;
+    .story-dot:nth-child(2){
+      top:20%;
+    }
 
-  align-items:center;
+    .story-dot:nth-child(3){
+      top:40%;
+    }
 
-  gap:34px;
-}
+    .story-dot:nth-child(4){
+      top:60%;
+    }
 
-nav a{
+    .story-dot:nth-child(5){
+      top:80%;
+    }
 
-  position:relative;
+    .story-dot:nth-child(6){
+      top:100%;
+    }
 
-  padding:35px 0;
+    .story-dot.active{
+      width:22px;
+      height:22px;
 
-  font-size:13px;
+      background:#fff;
 
-  font-weight:bold;
+      border:3px solid #ff1111;
 
-  letter-spacing:1px;
+      box-shadow:
+        0 0 8px #fff,
+        0 0 18px #ff1111,
+        0 0 40px rgba(255,0,0,.75);
+    }
 
-  transition:.25s;
-}
 
-nav a:hover{
+    /* =========================
+       PAINÉIS
+    ========================= */
 
-  color:#ff1515;
-}
+    .story-panel{
+      position:absolute;
 
-nav a.active{
+      inset:0;
 
-  color:#ff1515;
-}
+      display:grid;
 
-nav a.active::after{
+      grid-template-columns:
+        minmax(0,1fr)
+        90px
+        minmax(0,1fr);
 
-  content:"";
+      align-items:center;
 
-  position:absolute;
+      opacity:0;
+      visibility:hidden;
 
-  left:0;
-  right:0;
+      transform:translateY(25px);
 
-  bottom:20px;
+      transition:
+        opacity .65s ease,
+        transform .65s ease,
+        visibility .65s ease;
 
-  height:3px;
+      z-index:3;
+    }
 
-  background:#ff1515;
+    .story-panel.active{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
 
-  box-shadow:
-    0 0 10px rgba(255,0,0,.8);
-}
 
+    /* =========================
+       TEXTO
+    ========================= */
 
-/* ==================================================
-   HERO HISTÓRIA
-================================================== */
+    .story-content{
+      grid-column:1;
 
-.history-hero{
+      width:min(520px,85%);
 
-  height:360px;
+      justify-self:end;
 
-  display:flex;
+      padding-right:35px;
 
-  justify-content:center;
+      text-align:right;
+    }
 
-  align-items:center;
+    .story-year{
+      color:#ff1717;
 
-  text-align:center;
+      font-size:clamp(52px,5vw,78px);
 
-  position:relative;
+      font-weight:900;
 
-  overflow:hidden;
+      line-height:.95;
 
-  background:
+      margin-bottom:10px;
 
-    radial-gradient(
-      circle at center,
-      rgba(170,0,0,.38),
-      transparent 55%
-    ),
+      text-shadow:
+        0 0 20px rgba(255,0,0,.25);
+    }
 
-    linear-gradient(
-      #090909,
-      #050505
-    );
-}
+    .story-content h2{
+      font-size:26px;
 
-.history-hero::before{
+      font-weight:900;
 
-  content:"";
+      letter-spacing:1px;
 
-  position:absolute;
+      margin-bottom:22px;
+    }
 
-  width:420px;
+    .story-content p{
+      color:#aaa;
 
-  height:420px;
+      font-size:14px;
 
-  left:50%;
+      line-height:1.8;
 
-  top:50%;
+      margin-bottom:20px;
+    }
 
-  transform:
-    translate(-50%,-50%);
 
-  background:
-    url("cdrvg.png")
-    center / contain
-    no-repeat;
+    /* =========================
+       FOTOGRAFIA
+    ========================= */
 
-  opacity:.08;
+    .story-media{
+      grid-column:3;
 
-  filter:
-    drop-shadow(
-      0 0 40px
-      rgba(255,0,0,.5)
-    );
-}
+      width:min(520px,85%);
 
-.history-hero-content{
+      justify-self:start;
 
-  position:relative;
+      padding-left:35px;
+    }
 
-  z-index:2;
-}
+    .story-media img{
+      display:block;
 
-.history-hero h1{
+      width:100%;
 
-  font-size:
-    clamp(55px,8vw,110px);
+      max-height:430px;
 
-  font-weight:900;
+      object-fit:cover;
 
-  letter-spacing:10px;
+      border:1px solid rgba(255,255,255,.25);
 
-  text-shadow:
-    0 5px 25px #000;
-}
+      box-shadow:
+        0 0 25px rgba(0,0,0,.8),
+        0 0 30px rgba(120,0,0,.12);
 
-.history-hero p{
+      filter:
+        brightness(.82)
+        contrast(1.05);
 
-  margin-top:18px;
+      transition:
+        transform .6s ease,
+        filter .6s ease;
+    }
 
-  color:#aaa;
+    .story-panel.active .story-media img{
+      filter:
+        brightness(.92)
+        contrast(1.05);
+    }
 
-  font-size:14px;
+    .story-media img:hover{
+      transform:scale(1.015);
+    }
 
-  letter-spacing:6px;
-}
+    .story-caption{
+      margin-top:12px;
 
-.red-line{
+      color:#999;
 
-  width:120px;
+      font-size:12px;
 
-  height:4px;
+      font-style:italic;
 
-  background:#ed1111;
+      line-height:1.5;
+    }
 
-  margin:25px auto;
 
-  box-shadow:
-    0 0 15px rgba(255,0,0,.8),
-    0 0 30px rgba(255,0,0,.35);
-}
+    /* =========================
+       PAINÉIS ALTERNADOS
+    ========================= */
 
+    .story-panel:nth-of-type(2n) .story-content{
+      grid-column:3;
 
-/* ==================================================
-   INTRO
-================================================== */
+      justify-self:start;
 
-.history-intro{
+      padding-left:35px;
+      padding-right:0;
 
-  max-width:850px;
+      text-align:left;
+    }
 
-  margin:auto;
+    .story-panel:nth-of-type(2n) .story-media{
+      grid-column:1;
 
-  padding:70px 25px 50px;
+      justify-self:end;
 
-  text-align:center;
-}
+      padding-right:35px;
+      padding-left:0;
+    }
 
-.history-intro h2{
 
-  font-size:30px;
+    /* =========================
+       INDICAÇÃO DE SCROLL
+    ========================= */
 
-  letter-spacing:3px;
+    .scroll-hint{
+      position:absolute;
 
-  margin-bottom:22px;
-}
+      bottom:16px;
+      left:50%;
 
-.history-intro p{
+      transform:translateX(-50%);
 
-  color:#999;
+      color:#555;
 
-  line-height:1.9;
+      font-size:8px;
 
-  font-size:15px;
-}
+      letter-spacing:5px;
 
-.history-intro strong{
+      text-transform:uppercase;
 
-  color:#fff;
-}
+      white-space:nowrap;
 
+      z-index:10;
+    }
 
-/* ==================================================
-   STORY
-================================================== */
 
-/*
-   Cada story-step ocupa um ecrã inteiro.
-   O palco fica sticky.
-*/
+    /* =========================
+       FUTURO
+    ========================= */
 
-.story{
+    .future-panel{
+      text-align:center;
+    }
 
-  position:relative;
+    .future-panel .story-content{
+      grid-column:1 / 4;
 
-  height:600vh;
-}
+      justify-self:center;
 
+      width:min(750px,85%);
 
-/* ==================================================
-   PALCO STICKY
-================================================== */
+      padding:0;
 
-.story-stage{
+      text-align:center;
+    }
 
-  position:sticky;
+    .future-panel .story-year{
+      font-size:clamp(42px,5vw,70px);
+    }
 
-  top:92px;
 
-  height:
-    calc(100vh - 92px);
+    /* =========================
+       MOBILE
+    ========================= */
 
-  min-height:650px;
+    @media(max-width:800px){
 
-  overflow:hidden;
+      header{
+        height:auto;
+        min-height:75px;
 
-  background:
+        padding:12px 20px;
 
-    radial-gradient(
-      circle at center,
-      rgba(100,0,0,.10),
-      transparent 55%
-    );
-}
+        gap:15px;
+      }
 
+      .brand-title{
+        font-size:16px;
+      }
 
-/* ==================================================
-   LINHA CENTRAL
-================================================== */
+      .brand-subtitle{
+        font-size:6px;
+        letter-spacing:2px;
+      }
 
-.story-line{
+      .brand img{
+        width:38px;
+        height:38px;
+      }
 
-  position:absolute;
+      nav{
+        gap:12px;
+      }
 
-  left:50%;
+      nav a{
+        font-size:9px;
+      }
 
-  top:7%;
+      .story-stage{
+        top:75px;
+        height:calc(100vh - 75px);
+        min-height:600px;
+      }
 
-  bottom:7%;
+      .story-line{
+        left:50%;
+      }
 
-  width:4px;
+      .story-panel{
+        grid-template-columns:
+          1fr
+          35px
+          1fr;
+      }
 
-  transform:
-    translateX(-50%);
+      .story-content{
+        width:100%;
+        padding-right:15px;
+      }
 
-  background:
+      .story-media{
+        width:100%;
+        padding-left:15px;
+      }
 
-    linear-gradient(
-      to bottom,
-      transparent,
-      #ed1111 12%,
-      #ff1515 50%,
-      #ed1111 88%,
-      transparent
-    );
+      .story-content h2{
+        font-size:19px;
+      }
 
-  box-shadow:
+      .story-content p{
+        font-size:11px;
+        line-height:1.6;
+      }
 
-    0 0 8px rgba(255,0,0,.9),
+      .story-year{
+        font-size:42px;
+      }
 
-    0 0 25px rgba(255,0,0,.45),
+      .story-media img{
+        max-height:260px;
+      }
 
-    0 0 55px rgba(255,0,0,.18);
+      .story-panel:nth-of-type(2n) .story-content{
+        padding-left:15px;
+      }
 
-  z-index:2;
-}
+      .story-panel:nth-of-type(2n) .story-media{
+        padding-right:15px;
+      }
+    }
 
-
-/* ==================================================
-   PONTOS
-================================================== */
-
-.story-dot{
-
-  position:absolute;
-
-  left:50%;
-
-  width:22px;
-
-  height:22px;
-
-  border-radius:50%;
-
-  transform:
-    translateX(-50%);
-
-  background:#ff1515;
-
-  border:4px solid #050505;
-
-  box-shadow:
-
-    0 0 0 2px #ed1111,
-
-    0 0 15px #ff0000,
-
-    0 0 35px rgba(255,0,0,.9);
-
-  z-index:5;
-
-  transition:
-
-    transform .5s ease,
-
-    box-shadow .5s ease,
-
-    background .5s ease;
-}
-
-.story-dot.active{
-
-  transform:
-    translateX(-50%)
-    scale(1.35);
-
-  background:#fff;
-
-  box-shadow:
-
-    0 0 0 3px #ff1111,
-
-    0 0 20px #ff0000,
-
-    0 0 50px rgba(255,0,0,1),
-
-    0 0 90px rgba(255,0,0,.6);
-}
-
-
-/* posições dos pontos */
-
-.dot-1{
-  top:8%;
-}
-
-.dot-2{
-  top:25%;
-}
-
-.dot-3{
-  top:42%;
-}
-
-.dot-4{
-  top:59%;
-}
-
-.dot-5{
-  top:76%;
-}
-
-.dot-6{
-  top:92%;
-}
-
-
-/* ==================================================
-   CONTEÚDO DOS MOMENTOS
-================================================== */
-
-.story-panel{
-
-  position:absolute;
-
-  inset:0;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 90px 1fr;
-
-  align-items:center;
-
-  padding:
-    40px 6%;
-
-  opacity:0;
-
-  visibility:hidden;
-
-  transform:
-    translateY(35px)
-    scale(.97);
-
-  transition:
-
-    opacity .8s ease,
-
-    transform .8s ease,
-
-    visibility .8s;
-}
-
-.story-panel.active{
-
-  opacity:1;
-
-  visibility:visible;
-
-  transform:
-    translateY(0)
-    scale(1);
-}
-
-
-/* ==================================================
-   BLOCO ESQUERDO
-================================================== */
-
-.story-left{
-
-  grid-column:1;
-
-  max-width:500px;
-
-  justify-self:end;
-
-  padding-right:35px;
-
-  text-align:right;
-}
-
-
-/* ==================================================
-   BLOCO DIREITO
-================================================== */
-
-.story-right{
-
-  grid-column:3;
-
-  max-width:500px;
-
-  justify-self:start;
-
-  padding-left:35px;
-
-  text-align:left;
-}
-
-
-/* ==================================================
-   ANO
-================================================== */
-
-.story-year{
-
-  font-size:
-
-    clamp(42px,5vw,72px);
-
-  font-weight:900;
-
-  color:#ed1111;
-
-  letter-spacing:3px;
-
-  line-height:1;
-
-  text-shadow:
-
-    0 0 20px
-    rgba(255,0,0,.35);
-}
-
-
-/* ==================================================
-   TÍTULO
-================================================== */
-
-.story-title{
-
-  margin-top:14px;
-
-  font-size:
-
-    clamp(22px,2.5vw,34px);
-
-  letter-spacing:2px;
-
-  font-weight:900;
-}
-
-
-/* ==================================================
-   TEXTO
-================================================== */
-
-.story-text{
-
-  margin-top:18px;
-
-  color:#aaa;
-
-  font-size:15px;
-
-  line-height:1.8;
-}
-
-
-/* ==================================================
-   FRASE
-================================================== */
-
-.story-quote{
-
-  margin-top:18px;
-
-  color:#ddd;
-
-  font-size:14px;
-
-  font-style:italic;
-}
-
-
-/* ==================================================
-   IMAGEM
-================================================== */
-
-.story-image{
-
-  margin-top:25px;
-
-  width:100%;
-
-  max-width:480px;
-
-  border:1px solid #444;
-
-  padding:7px;
-
-  background:#090909;
-
-  box-shadow:
-
-    0 20px 55px
-    rgba(0,0,0,.75);
-
-  position:relative;
-
-  overflow:hidden;
-}
-
-.story-image img{
-
-  display:block;
-
-  width:100%;
-
-  height:280px;
-
-  object-fit:cover;
-
-  filter:
-
-    grayscale(25%)
-
-    contrast(1.08);
-}
-
-.story-image::after{
-
-  content:"";
-
-  position:absolute;
-
-  inset:7px;
-
-  pointer-events:none;
-
-  background:
-
-    linear-gradient(
-      135deg,
-      rgba(255,0,0,.12),
-      transparent 35%,
-      transparent 65%,
-      rgba(255,0,0,.08)
-    );
-}
-
-
-/* ==================================================
-   SÍMBOLO 1947
-================================================== */
-
-.story-symbol{
-
-  width:100px;
-
-  height:100px;
-
-  object-fit:contain;
-
-  margin-top:25px;
-
-  filter:
-
-    drop-shadow(
-      0 0 12px
-      rgba(255,0,0,.7)
-    )
-
-    drop-shadow(
-      0 0 30px
-      rgba(255,0,0,.3)
-    );
-}
-
-
-/* ==================================================
-   INDICADOR DE SCROLL
-================================================== */
-
-.scroll-hint{
-
-  position:absolute;
-
-  bottom:25px;
-
-  left:50%;
-
-  transform:
-    translateX(-50%);
-
-  color:#666;
-
-  font-size:10px;
-
-  letter-spacing:4px;
-
-  z-index:10;
-
-  animation:
-    scrollPulse 2s infinite;
-}
-
-@keyframes scrollPulse{
-
-  0%,
-  100%{
-    opacity:.3;
-  }
-
-  50%{
-    opacity:1;
-  }
-}
-
-
-/* ==================================================
-   FUTURO
-================================================== */
-
-.future-text{
-
-  color:#999;
-
-  line-height:1.8;
-
-  font-size:15px;
-
-  margin-top:18px;
-}
-
-
-/* ==================================================
-   FOOTER
-================================================== */
-
-footer{
-
-  border-top:1px solid #292929;
-
-  padding:35px 6%;
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  color:#888;
-
-  font-size:11px;
-
-  letter-spacing:2px;
-}
-
-footer strong{
-
-  color:#fff;
-}
-
-
-/* ==================================================
-   TABLET
-================================================== */
-
-@media(max-width:900px){
-
-  header{
-
-    height:auto;
-
-    padding:18px;
-
-    flex-direction:column;
-
-    gap:15px;
-  }
-
-  .brand{
-
-    min-width:0;
-  }
-
-  nav{
-
-    flex-wrap:wrap;
-
-    gap:18px;
-  }
-
-  nav a{
-
-    padding:5px;
-  }
-
-  nav a.active::after{
-
-    bottom:-5px;
-  }
-
-  .story-panel{
-
-    padding:
-      30px 30px;
-  }
-
-  .story-left{
-
-    padding-right:20px;
-  }
-
-  .story-right{
-
-    padding-left:20px;
-  }
-
-  .story-image img{
-
-    height:230px;
-  }
-
-}
-
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media(max-width:600px){
-
-  .brand-text strong{
-
-    font-size:18px;
-  }
-
-  .brand-text span{
-
-    font-size:7px;
-
-    letter-spacing:2px;
-  }
-
-  .history-hero{
-
-    height:280px;
-  }
-
-  .history-hero h1{
-
-    font-size:43px;
-
-    letter-spacing:5px;
-  }
-
-  .history-hero p{
-
-    font-size:10px;
-
-    letter-spacing:3px;
-  }
-
-  .history-intro{
-
-    padding:
-      50px 20px;
-  }
-
-  .story{
-
-    height:600vh;
-  }
-
-  .story-stage{
-
-    top:0;
-
-    height:100vh;
-
-    min-height:600px;
-  }
-
-  .story-line{
-
-    left:28px;
-
-    top:8%;
-
-    bottom:8%;
-  }
-
-  .story-dot{
-
-    left:28px;
-  }
-
-  .story-panel{
-
-    display:block;
-
-    padding:
-      60px 25px 60px 65px;
-
-    overflow-y:auto;
-  }
-
-  .story-left,
-  .story-right{
-
-    max-width:none;
-
-    padding:0;
-
-    text-align:left;
-  }
-
-  .story-image{
-
-    max-width:100%;
-  }
-
-  .story-image img{
-
-    height:220px;
-  }
-
-  .scroll-hint{
-
-    display:none;
-  }
-
-  footer{
-
-    flex-direction:column;
-
-    gap:15px;
-
-    text-align:center;
-  }
-
-}
-
-</style>
-
+  </style>
 </head>
 
 
 <body>
 
 
-<!-- ==================================================
-     HEADER
-================================================== -->
+  <!-- =========================
+       CABEÇALHO
+  ========================= -->
 
-<header>
+  <header>
 
-  <a href="index.html" class="brand">
+    <a href="index.html" class="brand" style="text-decoration:none;color:#fff;">
 
-    <img
-      src="cdrvg.png"
-      alt="CDR Vasco da Gama"
-    >
+      <img
+        src="cdrvg.png"
+        alt="CDR Vasco da Gama"
+      >
 
-    <div class="brand-text">
+      <div class="brand-text">
 
-      <strong>
-        CDR VASCO DA GAMA
-      </strong>
+        <div class="brand-title">
+          CDR VASCO DA GAMA
+        </div>
 
-      <span>
-        CLUBE DESPORTIVO E RECREATIVO
-      </span>
+        <div class="brand-subtitle">
+          CLUBE DESPORTIVO E RECREATIVO
+        </div>
+
+      </div>
+
+    </a>
+
+
+    <nav>
+
+      <a href="index.html">
+        HOME
+      </a>
+
+      <a href="historia.html" class="active">
+        HISTÓRIA
+      </a>
+
+      <a href="#">
+        LOJA
+      </a>
+
+      <a href="#">
+        CALENDÁRIO
+      </a>
+
+      <a href="#">
+        SÓCIOS
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================
+       INTRO
+  ========================= -->
+
+  <section class="history-intro">
+
+    <div>
+
+      <h1>
+        A nossa <span>história</span>
+      </h1>
+
+      <p>
+        Uma história construída ao longo de gerações,
+        marcada pelo clube, pelas pessoas e por todos
+        aqueles que vestiram estas cores.
+      </p>
 
     </div>
 
-  </a>
-
-
-  <nav>
-
-    <a href="index.html">
-      HOME
-    </a>
-
-    <a
-      href="historia.html"
-      class="active"
-    >
-      HISTÓRIA
-    </a>
-
-    <a href="#">
-      LOJA
-    </a>
-
-    <a href="#">
-      CALENDÁRIO
-    </a>
-
-    <a href="#">
-      SÓCIOS
-    </a>
-
-  </nav>
-
-</header>
+  </section>
 
 
 
-<!-- ==================================================
-     HERO
-================================================== -->
+  <!-- =========================
+       STORY
+  ========================= -->
 
-<section class="history-hero">
+  <section class="story">
 
-  <div class="history-hero-content">
-
-    <h1>
-      HISTÓRIA
-    </h1>
-
-    <div class="red-line"></div>
-
-    <p>
-      RAÍZES QUE CONSTROEM O FUTURO
-    </p>
-
-  </div>
-
-</section>
+    <div class="story-stage">
 
 
+      <!-- LINHA -->
 
-<!-- ==================================================
-     INTRO
-================================================== -->
+      <div class="story-line">
 
-<section class="history-intro">
+        <div class="story-dot active"></div>
+        <div class="story-dot"></div>
+        <div class="story-dot"></div>
+        <div class="story-dot"></div>
+        <div class="story-dot"></div>
+        <div class="story-dot"></div>
 
-  <h2>
-    UMA HISTÓRIA DE PAIXÃO
-  </h2>
-
-  <p>
-
-    O <strong>Clube Desportivo e Recreativo Vasco da Gama</strong>
-    construiu ao longo das décadas uma identidade marcada
-    pelo desporto, pela comunidade e pela paixão pelas
-    suas cores.
-
-  </p>
-
-  <br>
-
-  <p>
-
-    Esta linha do tempo apresenta alguns dos momentos
-    já identificados. À medida que forem reunidos novos
-    documentos e informações, a história será ampliada.
-
-  </p>
-
-</section>
+      </div>
 
 
 
-<!-- ==================================================
-     STORYTELLING
-================================================== -->
+      <!-- =========================
+           1947
+      ========================= -->
 
-<section class="story">
+      <div class="story-panel active">
 
+        <div class="story-content">
 
-  <div class="story-stage">
+          <div class="story-year">
+            1947
+          </div>
 
+          <h2>
+            FUNDAÇÃO
+          </h2>
 
-    <!-- LINHA -->
+          <p>
+            O ano que marca o início da história
+            do Clube Desportivo e Recreativo
+            Vasco da Gama.
+          </p>
 
-    <div class="story-line"></div>
-
-
-    <!-- PONTOS -->
-
-    <div class="story-dot dot-1"></div>
-
-    <div class="story-dot dot-2"></div>
-
-    <div class="story-dot dot-3"></div>
-
-    <div class="story-dot dot-4"></div>
-
-    <div class="story-dot dot-5"></div>
-
-    <div class="story-dot dot-6"></div>
-
-
-
-    <!-- ==================================================
-         1947
-    ================================================== -->
-
-    <article
-      class="story-panel"
-      data-step="0"
-    >
-
-      <div class="story-left">
-
-        <div class="story-year">
-          1947
-        </div>
-
-        <div class="story-title">
-          FUNDAÇÃO
-        </div>
-
-        <div class="story-text">
-
-          O ano que marca o início da história
-          do Clube Desportivo e Recreativo
-          Vasco da Gama.
+          <p>
+            Os detalhes da fundação serão preenchidos
+            à medida que forem reunidos os documentos
+            históricos do clube.
+          </p>
 
         </div>
 
-        <div class="story-text">
 
-          Os detalhes da fundação serão
-          preenchidos à medida que forem
-          reunidos os documentos históricos
-          do clube.
-
-
-      <div></div>
-
-
-      <div class="story-right">
-
-        <div class="story-image">
+        <div class="story-media">
 
           <img
-            src="historia-edificio.jpg"
+            src="historia-edificio.jpeg"
             alt="Edifício histórico"
           >
 
-        </div>
-
-        <div class="story-quote">
-
-          “Uma história que começou em 1947.”
+          <div class="story-caption">
+            "Uma história que começou em 1947."
+          </div>
 
         </div>
 
       </div>
 
-    </article>
 
 
+      <!-- =========================
+           2000
+      ========================= -->
 
-    <!-- ==================================================
-         2000
-    ================================================== -->
+      <div class="story-panel">
 
-    <article
-      class="story-panel"
-      data-step="1"
-    >
+        <div class="story-content">
 
-      <div class="story-left">
+          <div class="story-year">
+            2000
+          </div>
 
-        <div class="story-image">
+          <h2>
+            EQUIPA FEMININA
+          </h2>
+
+          <p>
+            Um marco importante na história do clube
+            com a presença de uma equipa feminina.
+          </p>
+
+          <p>
+            Uma nova geração de atletas passou também
+            a fazer parte da identidade do Vasco da Gama.
+          </p>
+
+        </div>
+
+
+        <div class="story-media">
 
           <img
             src="historia-feminina.jpg"
             alt="Equipa feminina"
           >
 
-        </div>
-
-      </div>
-
-
-      <div></div>
-
-
-      <div class="story-right">
-
-        <div class="story-year">
-          2000
-        </div>
-
-        <div class="story-title">
-          EQUIPA FEMININA
-        </div>
-
-        <div class="story-text">
-
-          Um momento importante na história
-          do clube: a existência de uma
-          equipa feminina em 2000.
-
-        </div>
-
-        <div class="story-text">
-
-          A informação histórica sobre esta
-          equipa será posteriormente
-          desenvolvida.
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-
-    <!-- ==================================================
-         2021-2023
-    ================================================== -->
-
-    <article
-      class="story-panel"
-      data-step="2"
-    >
-
-      <div class="story-left">
-
-        <div class="story-year">
-          2021–2023
-        </div>
-
-        <div class="story-title">
-          BICAMPEONATO DISTRITAL INATEL
-        </div>
-
-        <div class="story-text">
-
-          Um período de destaque no percurso
-          competitivo do CDR Vasco da Gama,
-          com a conquista do Bicampeonato
-          Distrital INATEL.
-
-        </div>
-
-        <div class="story-quote">
-
-          “Trabalho, dedicação e paixão.”
+          <div class="story-caption">
+            Equipa feminina do clube.
+          </div>
 
         </div>
 
       </div>
 
 
-      <div></div>
+
+      <!-- =========================
+           2021 - 2023
+      ========================= -->
+
+      <div class="story-panel">
+
+        <div class="story-content">
+
+          <div class="story-year">
+            2021–2023
+          </div>
+
+          <h2>
+            BICAMPEONATO DISTRITAL INATEL
+          </h2>
+
+          <p>
+            O clube alcança um período de destaque
+            com a conquista do Bicampeonato Distrital
+            INATEL.
+          </p>
+
+          <p>
+            Uma conquista que fica marcada
+            na história desportiva do Vasco da Gama.
+          </p>
+
+        </div>
 
 
-      <div class="story-right">
-
-        <div class="story-image">
+        <div class="story-media">
 
           <img
-            src="historia-juniores.jpg"
-            alt="Equipa do CDR Vasco da Gama"
+            src="historia-juniores.jpeg"
+            alt="Equipa de juniores"
           >
+
+          <div class="story-caption">
+            Uma geração que ajudou a escrever a história do clube.
+          </div>
 
         </div>
 
       </div>
 
-    </article>
 
 
+      <!-- =========================
+           2022 - CAMPO
+      ========================= -->
 
-    <!-- ==================================================
-         2022 RELVA
-    ================================================== -->
+      <div class="story-panel">
 
-    <article
-      class="story-panel"
-      data-step="3"
-    >
+        <div class="story-content">
 
-      <div class="story-left">
+          <div class="story-year">
+            2022
+          </div>
 
-        <div class="story-image">
+          <h2>
+            CAMPO DA BELA VISTA
+          </h2>
+
+          <p>
+            O Campo da Bela Vista recebe
+            um novo piso sintético.
+          </p>
+
+          <p>
+            Uma melhoria importante para as condições
+            de treino e competição do clube.
+          </p>
+
+        </div>
+
+
+        <div class="story-media">
 
           <img
             src="historia-campo.jpg"
             alt="Campo da Bela Vista"
           >
 
-        </div>
-
-      </div>
-
-
-      <div></div>
-
-
-      <div class="story-right">
-
-        <div class="story-year">
-          2022
-        </div>
-
-        <div class="story-title">
-          RELVA SINTÉTICA
-        </div>
-
-        <div class="story-title"
-             style="font-size:18px;">
-
-          CAMPO DA BELA VISTA
-
-        </div>
-
-        <div class="story-text">
-
-          Colocação de relva sintética no
-          Campo da Bela Vista, melhorando
-          as condições para a prática
-          desportiva.
-
-        </div>
-
-        <div class="story-quote">
-
-          “Um passo importante para o futuro.”
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-
-    <!-- ==================================================
-         2022 FORMAÇÃO
-    ================================================== -->
-
-    <article
-      class="story-panel"
-      data-step="4"
-    >
-
-      <div class="story-left">
-
-        <div class="story-year">
-          2022
-        </div>
-
-        <div class="story-title">
-          INÍCIO DA FORMAÇÃO
-        </div>
-
-        <div class="story-text">
-
-          Início de uma nova etapa dedicada
-          à formação de jovens jogadores.
-
-        </div>
-
-        <div class="story-text">
-
-          Este momento representa uma aposta
-          no desenvolvimento das novas
-          gerações do clube.
+          <div class="story-caption">
+            Campo da Bela Vista.
+          </div>
 
         </div>
 
       </div>
 
 
-      <div></div>
+
+      <!-- =========================
+           2022 - FORMAÇÃO
+      ========================= -->
+
+      <div class="story-panel">
+
+        <div class="story-content">
+
+          <div class="story-year">
+            2022
+          </div>
+
+          <h2>
+            FORMAÇÃO
+          </h2>
+
+          <p>
+            O clube inicia uma nova etapa no desenvolvimento
+            da sua formação jovem.
+          </p>
+
+          <p>
+            O objetivo passa por criar bases sólidas
+            para o futuro do Vasco da Gama.
+          </p>
+
+        </div>
 
 
-      <div class="story-right">
-
-        <div class="story-image">
+        <div class="story-media">
 
           <img
-            src="historia-juniores.jpg"
-            alt="Equipa de formação"
+            src="historia-juniores.jpeg"
+            alt="Formação do clube"
           >
 
-        </div>
-
-      </div>
-
-    </article>
-
-
-
-    <!-- ==================================================
-         FUTURO
-    ================================================== -->
-
-    <article
-      class="story-panel"
-      data-step="5"
-    >
-
-      <div class="story-left">
-
-        <div class="story-image">
-
-          <img
-            src="historia-bancada.jpg"
-            alt="Apoio dos adeptos"
-          >
+          <div class="story-caption">
+            A formação como parte do futuro do clube.
+          </div>
 
         </div>
 
       </div>
 
 
-      <div></div>
 
+      <!-- =========================
+           FUTURO
+      ========================= -->
 
-      <div class="story-right">
+      <div class="story-panel future-panel">
 
-        <div class="story-year">
-          FUTURO
-        </div>
+        <div class="story-content">
 
-        <div class="story-title">
-          A HISTÓRIA CONTINUA
-        </div>
+          <div class="story-year">
+            FUTURO
+          </div>
 
-        <div class="story-text">
+          <h2>
+            A HISTÓRIA CONTINUA
+          </h2>
 
-          A história do CDR Vasco da Gama
-          continua a ser escrita.
-
-        </div>
-
-        <div class="story-text">
-
-          Este espaço será atualizado com
-          novas épocas, equipas, conquistas,
-          pessoas e momentos importantes.
-
-        </div>
-
-        <div class="story-quote">
-
-          “Raízes no passado, olhos no futuro.”
+          <p>
+            O passado construiu a identidade.
+            O presente mantém viva a paixão.
+            O futuro está nas mãos das próximas gerações.
+          </p>
 
         </div>
 
       </div>
 
-    </article>
 
 
-    <div class="scroll-hint">
-      CONTINUA A DESCER
+      <div class="scroll-hint">
+        CONTINUA A DESCER
+      </div>
+
+
     </div>
 
-
-  </div>
-
-</section>
+  </section>
 
 
 
-<!-- ==================================================
-     FOOTER
-================================================== -->
+  <script>
 
-<footer>
+    const panels =
+      document.querySelectorAll(".story-panel");
 
-  <div>
+    const dots =
+      document.querySelectorAll(".story-dot");
 
-    <strong>
-      CDR VASCO DA GAMA
-    </strong>
-
-    <br>
-
-    FUNDAÇÃO · 1947
-
-  </div>
+    const story =
+      document.querySelector(".story");
 
 
-  <div>
-    TRADIÇÃO · FORMAÇÃO · UNIÃO
-  </div>
+    function updateStory(){
+
+      const rect =
+        story.getBoundingClientRect();
+
+      const viewport =
+        window.innerHeight;
+
+      const total =
+        story.offsetHeight - viewport;
 
 
-  <div>
-    AMOR DE PRETO E BRANCO
-  </div>
-
-</footer>
+      let progress =
+        -rect.top / total;
 
 
-
-<!-- ==================================================
-     JAVASCRIPT
-================================================== -->
-
-<script>
-
-const panels =
-  document.querySelectorAll(".story-panel");
-
-const dots =
-  document.querySelectorAll(".story-dot");
-
-const story =
-  document.querySelector(".story");
+      progress =
+        Math.max(
+          0,
+          Math.min(
+            0.999,
+            progress
+          )
+        );
 
 
-/*
-   Cada bloco ocupa uma parte da história.
-   O scroll determina qual está ativo.
-*/
-
-function updateStory(){
-
-  const rect =
-    story.getBoundingClientRect();
-
-  const viewport =
-    window.innerHeight;
-
-  const total =
-    story.offsetHeight - viewport;
-
-  let progress =
-    -rect.top / total;
-
-  progress =
-    Math.max(
-      0,
-      Math.min(
-        0.999,
-        progress
-      )
-    );
-
-  const index =
-    Math.min(
-      panels.length - 1,
-      Math.floor(
-        progress * panels.length
-      )
-    );
+      const index =
+        Math.min(
+          panels.length - 1,
+          Math.floor(
+            progress * panels.length
+          )
+        );
 
 
-  panels.forEach(
-    (panel,i)=>{
+      panels.forEach(
+        (panel,i)=>{
 
-      panel.classList.toggle(
-        "active",
-        i === index
+          panel.classList.toggle(
+            "active",
+            i === index
+          );
+
+        }
+      );
+
+
+      dots.forEach(
+        (dot,i)=>{
+
+          dot.classList.toggle(
+            "active",
+            i === index
+          );
+
+        }
       );
 
     }
-  );
 
 
-  dots.forEach(
-    (dot,i)=>{
-
-      dot.classList.toggle(
-        "active",
-        i === index
-      );
-
-    }
-  );
-
-}
+    window.addEventListener(
+      "scroll",
+      updateStory,
+      {passive:true}
+    );
 
 
-window.addEventListener(
-  "scroll",
-  updateStory,
-  {passive:true}
-);
+    window.addEventListener(
+      "resize",
+      updateStory
+    );
 
 
-window.addEventListener(
-  "resize",
-  updateStory
-);
+    updateStory();
 
-
-updateStory();
-
-</script>
+  </script>
 
 
 </body>
-
 </html>
