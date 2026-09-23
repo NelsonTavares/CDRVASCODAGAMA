@@ -157,22 +157,193 @@ nav a.active::after{
 
 
 /* ==================================================
+   CARRINHO DESKTOP
+================================================== */
+
+.cart-link{
+  width:42px;
+  height:42px;
+
+  margin-left:22px;
+
+  border:1px solid #444;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  position:relative;
+
+  background:#090909;
+
+  transition:.25s;
+
+  flex-shrink:0;
+}
+
+.cart-link:hover{
+  border-color:#ff1515;
+
+  box-shadow:
+    0 0 15px rgba(255,0,0,.25);
+
+  transform:translateY(-2px);
+}
+
+.cart-icon{
+  width:19px;
+  height:19px;
+
+  position:relative;
+
+  display:block;
+}
+
+.cart-icon::before{
+  content:"";
+
+  position:absolute;
+
+  left:3px;
+  top:5px;
+
+  width:12px;
+  height:9px;
+
+  border:1.5px solid #fff;
+
+  border-top:none;
+
+  transform:skew(-8deg);
+}
+
+.cart-icon::after{
+  content:"••";
+
+  position:absolute;
+
+  left:4px;
+  bottom:-7px;
+
+  color:#fff;
+
+  font-size:13px;
+
+  letter-spacing:3px;
+
+  line-height:10px;
+}
+
+.cart-handle{
+  position:absolute;
+
+  width:6px;
+  height:6px;
+
+  border-top:1.5px solid #fff;
+
+  left:0;
+  top:3px;
+}
+
+.cart-count{
+  position:absolute;
+
+  top:-5px;
+  right:-4px;
+
+  min-width:16px;
+  height:16px;
+
+  padding:0 4px;
+
+  border-radius:20px;
+
+  background:#ff1515;
+
+  color:#fff;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  line-height:1;
+
+  border:2px solid #050505;
+}
+
+
+/* ==================================================
+   HAMBURGER
+================================================== */
+
+.menu-toggle{
+  display:none;
+
+  width:44px;
+  height:44px;
+
+  border:1px solid #444;
+
+  border-radius:50%;
+
+  background:#090909;
+
+  cursor:pointer;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-direction:column;
+
+  gap:5px;
+
+  transition:.25s;
+}
+
+.menu-toggle:hover{
+  border-color:#ff1515;
+
+  box-shadow:
+    0 0 15px rgba(255,0,0,.25);
+}
+
+.menu-toggle span{
+  display:block;
+
+  width:18px;
+  height:2px;
+
+  background:#fff;
+
+  transition:.3s;
+}
+
+
+/* ==================================================
+   MOBILE MENU
+================================================== */
+
+.mobile-menu{
+  display:none;
+}
+
+
+/* ==================================================
    HERO / FUNDO PRINCIPAL
 ================================================== */
 
 .hero{
 
-  /*
-    O hero acompanha a altura do ecrã.
-    Não depende de 50%, 75% ou 100% de zoom.
-  */
-
   height:calc(100vh - 92px);
-
-  /*
-    Evita que fique demasiado pequeno
-    em ecrãs baixos.
-  */
 
   min-height:650px;
 
@@ -183,13 +354,10 @@ nav a.active::after{
   display:flex;
 
   justify-content:center;
+
   align-items:center;
 
   text-align:center;
-
-  /*
-    A imagem original NÃO é alterada.
-  */
 
   background:
     url("fundohome.png")
@@ -230,13 +398,6 @@ nav a.active::after{
 
   pointer-events:none;
 }
-
-
-/*
-   Não existe texto adicional dentro do HERO.
-   O texto que aparece na imagem vem do próprio
-   fundohome.png.
-*/
 
 
 /* ==================================================
@@ -523,40 +684,223 @@ footer strong{
 
   header{
 
-    height:auto;
+    height:78px;
 
-    padding:18px;
+    padding:0 20px;
 
-    flex-direction:column;
+    flex-direction:row;
 
-    gap:15px;
+    gap:0;
+
+    justify-content:space-between;
   }
 
   .brand{
 
     min-width:0;
+
+    gap:10px;
   }
 
-  nav{
+  .brand img{
 
-    flex-wrap:wrap;
-
-    gap:18px;
+    width:46px;
+    height:46px;
   }
 
-  nav a{
+  .brand-text strong{
 
-    padding:5px;
+    font-size:17px;
+
+    letter-spacing:1.5px;
   }
 
-  nav a.active::after{
+  .brand-text span{
 
-    bottom:-5px;
+    font-size:7px;
+
+    letter-spacing:2px;
+  }
+
+  /*
+    No telemóvel escondemos o menu
+    horizontal.
+  */
+
+  header > nav{
+    display:none;
+  }
+
+  /*
+    O carrinho deixa de ficar
+    diretamente no cabeçalho.
+    Ele aparece dentro do menu.
+  */
+
+  header > .cart-link{
+    display:none;
+  }
+
+  /*
+    Aparece apenas o botão
+    dos três traços.
+  */
+
+  .menu-toggle{
+
+    display:flex;
+
+    margin-left:auto;
+
+    margin-right:0;
+  }
+
+  /*
+    Menu móvel aberto
+  */
+
+  .mobile-menu{
+
+    position:absolute;
+
+    top:78px;
+
+    left:0;
+    right:0;
+
+    background:
+      linear-gradient(
+        145deg,
+        #111,
+        #050505
+      );
+
+    border-bottom:1px solid #333;
+
+    box-shadow:
+      0 20px 45px rgba(0,0,0,.75);
+
+    padding:12px 20px 20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:
+      translateY(-10px);
+
+    transition:
+      opacity .25s ease,
+      visibility .25s ease,
+      transform .25s ease;
+  }
+
+  .mobile-menu.open{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+      translateY(0);
+  }
+
+  .mobile-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    min-height:52px;
+
+    padding:0 8px;
+
+    border-bottom:1px solid #242424;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    letter-spacing:1.5px;
+
+    color:#fff;
+
+    transition:.25s;
+  }
+
+  .mobile-menu a:hover{
+
+    color:#ff1515;
+
+    padding-left:14px;
+  }
+
+  .mobile-menu a.active{
+
+    color:#ff1515;
+  }
+
+  .mobile-menu .mobile-cart{
+
+    margin-top:8px;
+
+    border:1px solid #333;
+
+    padding:0 14px;
+
+    background:#0b0b0b;
+  }
+
+  .mobile-cart-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+  }
+
+  .mobile-cart-icon{
+
+    font-size:18px;
+  }
+
+  .mobile-cart-count{
+
+    min-width:20px;
+
+    height:20px;
+
+    padding:0 5px;
+
+    border-radius:20px;
+
+    background:#ff1515;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:10px;
+
+    font-weight:900;
   }
 
   .hero{
 
-    height:calc(100vh - 130px);
+    height:calc(100vh - 78px);
 
     min-height:600px;
 
@@ -587,34 +931,65 @@ footer strong{
 
   header{
 
-    padding:15px;
+    height:72px;
+
+    padding:0 15px;
+  }
+
+  .brand{
+
+    gap:9px;
+  }
+
+  .brand img{
+
+    width:42px;
+    height:42px;
   }
 
   .brand-text strong{
 
-    font-size:18px;
+    font-size:15px;
+
+    letter-spacing:1px;
   }
 
   .brand-text span{
 
-    font-size:7px;
+    font-size:6px;
 
-    letter-spacing:2px;
+    letter-spacing:1.5px;
   }
 
-  nav{
+  .menu-toggle{
 
-    gap:14px;
+    width:40px;
+    height:40px;
   }
 
-  nav a{
+  .menu-toggle span{
 
-    font-size:11px;
+    width:17px;
+  }
+
+  .mobile-menu{
+
+    top:72px;
+
+    padding:
+      10px 15px 18px;
+  }
+
+  .mobile-menu a{
+
+    min-height:50px;
+
+    font-size:12px;
   }
 
   .hero{
 
-    height:calc(100vh - 150px);
+    height:calc(100vh - 72px);
 
     min-height:520px;
 
@@ -667,6 +1042,30 @@ footer strong{
 
 }
 
+
+/* ==================================================
+   ANIMAÇÃO DO HAMBURGER
+================================================== */
+
+.menu-toggle.open span:nth-child(1){
+
+  transform:
+    translateY(7px)
+    rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2){
+
+  opacity:0;
+}
+
+.menu-toggle.open span:nth-child(3){
+
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+}
+
 </style>
 
 </head>
@@ -681,7 +1080,7 @@ footer strong{
 
 <header>
 
-  <a href="#" class="brand">
+  <a href="index.html" class="brand">
 
     <img
       src="cdrvg.png"
@@ -703,20 +1102,22 @@ footer strong{
   </a>
 
 
+  <!-- MENU DESKTOP -->
+
   <nav>
 
     <a
-      href="#"
+      href="index.html"
       class="active"
     >
       HOME
     </a>
 
-    <a href="#">
+    <a href="historia.html">
       HISTÓRIA
     </a>
 
-    <a href="#">
+    <a href="loja.html">
       LOJA
     </a>
 
@@ -729,6 +1130,106 @@ footer strong{
     </a>
 
   </nav>
+
+
+  <!-- CARRINHO DESKTOP -->
+
+  <a
+    href="carrinho.html"
+    class="cart-link"
+    aria-label="Carrinho de compras"
+  >
+
+    <span class="cart-icon">
+
+      <span class="cart-handle"></span>
+
+    </span>
+
+    <span
+      class="cart-count"
+      id="cartCountDesktop"
+    >
+      0
+    </span>
+
+  </a>
+
+
+  <!-- BOTÃO MOBILE -->
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Abrir menu"
+    aria-expanded="false"
+  >
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+
+  <!-- MENU MOBILE -->
+
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+    <a
+      href="index.html"
+      class="active"
+    >
+      HOME
+    </a>
+
+    <a href="historia.html">
+      HISTÓRIA
+    </a>
+
+    <a href="loja.html">
+      LOJA
+    </a>
+
+    <a href="#">
+      CALENDÁRIO
+    </a>
+
+    <a href="#">
+      SÓCIOS
+    </a>
+
+    <a
+      href="carrinho.html"
+      class="mobile-cart"
+    >
+
+      <span class="mobile-cart-left">
+
+        <span class="mobile-cart-icon">
+          🛒
+        </span>
+
+        <span>
+          CARRINHO
+        </span>
+
+      </span>
+
+      <span
+        class="mobile-cart-count"
+        id="cartCountMobile"
+      >
+        0
+      </span>
+
+    </a>
+
+  </div>
 
 </header>
 
@@ -846,7 +1347,10 @@ footer strong{
   <section class="features">
 
 
-    <a href="#" class="feature">
+    <a
+      href="historia.html"
+      class="feature"
+    >
 
       <h2>
         HISTÓRIA
@@ -860,7 +1364,10 @@ footer strong{
 
 
 
-    <a href="#" class="feature">
+    <a
+      href="loja.html"
+      class="feature"
+    >
 
       <h2>
         LOJA
@@ -874,7 +1381,10 @@ footer strong{
 
 
 
-    <a href="#" class="feature">
+    <a
+      href="#"
+      class="feature"
+    >
 
       <h2>
         SÓCIOS
@@ -888,7 +1398,10 @@ footer strong{
 
 
 
-    <a href="#" class="feature">
+    <a
+      href="#"
+      class="feature"
+    >
 
       <h2>
         CALENDÁRIO
@@ -936,6 +1449,215 @@ footer strong{
   </div>
 
 </footer>
+
+
+
+<script>
+
+/* ==================================================
+   MENU MOBILE
+================================================== */
+
+const menuToggle =
+  document.getElementById("menuToggle");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+
+function fecharMenu(){
+
+  mobileMenu.classList.remove("open");
+
+  menuToggle.classList.remove("open");
+
+  menuToggle.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+}
+
+
+function alternarMenu(){
+
+  const aberto =
+    mobileMenu.classList.toggle("open");
+
+  menuToggle.classList.toggle(
+    "open",
+    aberto
+  );
+
+  menuToggle.setAttribute(
+    "aria-expanded",
+    aberto ? "true" : "false"
+  );
+
+}
+
+
+menuToggle.addEventListener(
+  "click",
+  alternarMenu
+);
+
+
+/*
+  Ao clicar numa página,
+  o menu fecha.
+*/
+
+mobileMenu
+  .querySelectorAll("a")
+  .forEach(link => {
+
+    link.addEventListener(
+      "click",
+      fecharMenu
+    );
+
+  });
+
+
+/*
+  ESC fecha o menu.
+*/
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(event.key === "Escape"){
+
+      fecharMenu();
+
+    }
+
+  }
+);
+
+
+/*
+  Se voltarmos para desktop,
+  o menu mobile fecha.
+*/
+
+window.addEventListener(
+  "resize",
+  () => {
+
+    if(window.innerWidth > 900){
+
+      fecharMenu();
+
+    }
+
+  }
+);
+
+
+/* ==================================================
+   CONTADOR DO CARRINHO
+================================================== */
+
+function obterQuantidadeCarrinho(){
+
+  let quantidade = 0;
+
+  try{
+
+    const carrinho =
+      JSON.parse(
+        localStorage.getItem("cdrvg_cart") || "[]"
+      );
+
+    if(Array.isArray(carrinho)){
+
+      quantidade =
+        carrinho.reduce(
+          (total, item) =>
+            total + (Number(item.quantity) || 1),
+          0
+        );
+
+    }
+
+  }catch(error){
+
+    quantidade = 0;
+
+  }
+
+  return quantidade;
+}
+
+
+function atualizarContadorCarrinho(){
+
+  const quantidade =
+    obterQuantidadeCarrinho();
+
+
+  const desktop =
+    document.getElementById(
+      "cartCountDesktop"
+    );
+
+
+  const mobile =
+    document.getElementById(
+      "cartCountMobile"
+    );
+
+
+  if(desktop){
+
+    desktop.textContent =
+      quantidade;
+
+  }
+
+
+  if(mobile){
+
+    mobile.textContent =
+      quantidade;
+
+  }
+
+}
+
+
+/*
+  Atualizar ao abrir a página.
+*/
+
+atualizarContadorCarrinho();
+
+
+/*
+  Atualizar se outra página/aba
+  alterar o carrinho.
+*/
+
+window.addEventListener(
+  "storage",
+  atualizarContadorCarrinho
+);
+
+
+/*
+  Atualizar também quando voltamos
+  para esta página.
+*/
+
+window.addEventListener(
+  "pageshow",
+  atualizarContadorCarrinho
+);
+
+</script>
 
 
 </body>
